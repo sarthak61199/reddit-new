@@ -8,14 +8,6 @@
  * 🟢 You can import this file directly.
  */
 
-export const SubredditMemberRole = {
-  USER: "USER",
-  MODERATOR: "MODERATOR",
-} as const;
-
-export type SubredditMemberRole =
-  (typeof SubredditMemberRole)[keyof typeof SubredditMemberRole];
-
 export const VoteType = {
   UP: "UP",
   DOWN: "DOWN",

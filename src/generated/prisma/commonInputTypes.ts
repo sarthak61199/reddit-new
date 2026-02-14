@@ -173,40 +173,6 @@ export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>;
 };
 
-export type EnumSubredditMemberRoleFilter<$PrismaModel = never> = {
-  equals?:
-    | $Enums.SubredditMemberRole
-    | Prisma.EnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  in?:
-    | $Enums.SubredditMemberRole[]
-    | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  notIn?:
-    | $Enums.SubredditMemberRole[]
-    | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  not?:
-    | Prisma.NestedEnumSubredditMemberRoleFilter<$PrismaModel>
-    | $Enums.SubredditMemberRole;
-};
-
-export type EnumSubredditMemberRoleWithAggregatesFilter<$PrismaModel = never> =
-  {
-    equals?:
-      | $Enums.SubredditMemberRole
-      | Prisma.EnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-    in?:
-      | $Enums.SubredditMemberRole[]
-      | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-    notIn?:
-      | $Enums.SubredditMemberRole[]
-      | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-    not?:
-      | Prisma.NestedEnumSubredditMemberRoleWithAggregatesFilter<$PrismaModel>
-      | $Enums.SubredditMemberRole;
-    _count?: Prisma.NestedIntFilter<$PrismaModel>;
-    _min?: Prisma.NestedEnumSubredditMemberRoleFilter<$PrismaModel>;
-    _max?: Prisma.NestedEnumSubredditMemberRoleFilter<$PrismaModel>;
-  };
-
 export type EnumVoteTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.VoteType | Prisma.EnumVoteTypeFieldRefInput<$PrismaModel>;
   in?: $Enums.VoteType[] | Prisma.ListEnumVoteTypeFieldRefInput<$PrismaModel>;
@@ -402,41 +368,6 @@ export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>;
   _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>;
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>;
-};
-
-export type NestedEnumSubredditMemberRoleFilter<$PrismaModel = never> = {
-  equals?:
-    | $Enums.SubredditMemberRole
-    | Prisma.EnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  in?:
-    | $Enums.SubredditMemberRole[]
-    | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  notIn?:
-    | $Enums.SubredditMemberRole[]
-    | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  not?:
-    | Prisma.NestedEnumSubredditMemberRoleFilter<$PrismaModel>
-    | $Enums.SubredditMemberRole;
-};
-
-export type NestedEnumSubredditMemberRoleWithAggregatesFilter<
-  $PrismaModel = never,
-> = {
-  equals?:
-    | $Enums.SubredditMemberRole
-    | Prisma.EnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  in?:
-    | $Enums.SubredditMemberRole[]
-    | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  notIn?:
-    | $Enums.SubredditMemberRole[]
-    | Prisma.ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel>;
-  not?:
-    | Prisma.NestedEnumSubredditMemberRoleWithAggregatesFilter<$PrismaModel>
-    | $Enums.SubredditMemberRole;
-  _count?: Prisma.NestedIntFilter<$PrismaModel>;
-  _min?: Prisma.NestedEnumSubredditMemberRoleFilter<$PrismaModel>;
-  _max?: Prisma.NestedEnumSubredditMemberRoleFilter<$PrismaModel>;
 };
 
 export type NestedEnumVoteTypeFilter<$PrismaModel = never> = {

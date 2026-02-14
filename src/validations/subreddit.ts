@@ -19,12 +19,12 @@ export const getSubredditSchema = z.object({
   id: z.ulid().nonempty(),
 });
 
-export const addSubredditMemberSchema = z.object({
+export const addSubredditModeratorSchema = z.object({
   subredditId: z.ulid().nonempty(),
   userId: z.ulid().nonempty(),
 });
 
-export const removeSubredditMemberSchema = z.object({
+export const removeSubredditModeratorSchema = z.object({
   subredditId: z.ulid().nonempty(),
   userId: z.ulid().nonempty(),
 });

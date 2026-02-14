@@ -28,7 +28,6 @@ export type SubredditMemberMinAggregateOutputType = {
   id: string | null;
   subredditId: string | null;
   userId: string | null;
-  role: $Enums.SubredditMemberRole | null;
   createdAt: Date | null;
   updatedAt: Date | null;
 };
@@ -37,7 +36,6 @@ export type SubredditMemberMaxAggregateOutputType = {
   id: string | null;
   subredditId: string | null;
   userId: string | null;
-  role: $Enums.SubredditMemberRole | null;
   createdAt: Date | null;
   updatedAt: Date | null;
 };
@@ -46,7 +44,6 @@ export type SubredditMemberCountAggregateOutputType = {
   id: number;
   subredditId: number;
   userId: number;
-  role: number;
   createdAt: number;
   updatedAt: number;
   _all: number;
@@ -56,7 +53,6 @@ export type SubredditMemberMinAggregateInputType = {
   id?: true;
   subredditId?: true;
   userId?: true;
-  role?: true;
   createdAt?: true;
   updatedAt?: true;
 };
@@ -65,7 +61,6 @@ export type SubredditMemberMaxAggregateInputType = {
   id?: true;
   subredditId?: true;
   userId?: true;
-  role?: true;
   createdAt?: true;
   updatedAt?: true;
 };
@@ -74,7 +69,6 @@ export type SubredditMemberCountAggregateInputType = {
   id?: true;
   subredditId?: true;
   userId?: true;
-  role?: true;
   createdAt?: true;
   updatedAt?: true;
   _all?: true;
@@ -167,7 +161,6 @@ export type SubredditMemberGroupByOutputType = {
   id: string;
   subredditId: string;
   userId: string;
-  role: $Enums.SubredditMemberRole;
   createdAt: Date;
   updatedAt: Date;
   _count: SubredditMemberCountAggregateOutputType | null;
@@ -196,9 +189,6 @@ export type SubredditMemberWhereInput = {
   id?: Prisma.StringFilter<"SubredditMember"> | string;
   subredditId?: Prisma.StringFilter<"SubredditMember"> | string;
   userId?: Prisma.StringFilter<"SubredditMember"> | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFilter<"SubredditMember">
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFilter<"SubredditMember"> | Date | string;
   updatedAt?: Prisma.DateTimeFilter<"SubredditMember"> | Date | string;
   subreddit?: Prisma.XOR<
@@ -212,7 +202,6 @@ export type SubredditMemberOrderByWithRelationInput = {
   id?: Prisma.SortOrder;
   subredditId?: Prisma.SortOrder;
   userId?: Prisma.SortOrder;
-  role?: Prisma.SortOrder;
   createdAt?: Prisma.SortOrder;
   updatedAt?: Prisma.SortOrder;
   subreddit?: Prisma.SubredditOrderByWithRelationInput;
@@ -228,9 +217,6 @@ export type SubredditMemberWhereUniqueInput = Prisma.AtLeast<
     NOT?: Prisma.SubredditMemberWhereInput | Prisma.SubredditMemberWhereInput[];
     subredditId?: Prisma.StringFilter<"SubredditMember"> | string;
     userId?: Prisma.StringFilter<"SubredditMember"> | string;
-    role?:
-      | Prisma.EnumSubredditMemberRoleFilter<"SubredditMember">
-      | $Enums.SubredditMemberRole;
     createdAt?: Prisma.DateTimeFilter<"SubredditMember"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"SubredditMember"> | Date | string;
     subreddit?: Prisma.XOR<
@@ -246,7 +232,6 @@ export type SubredditMemberOrderByWithAggregationInput = {
   id?: Prisma.SortOrder;
   subredditId?: Prisma.SortOrder;
   userId?: Prisma.SortOrder;
-  role?: Prisma.SortOrder;
   createdAt?: Prisma.SortOrder;
   updatedAt?: Prisma.SortOrder;
   _count?: Prisma.SubredditMemberCountOrderByAggregateInput;
@@ -265,9 +250,6 @@ export type SubredditMemberScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"SubredditMember"> | string;
   subredditId?: Prisma.StringWithAggregatesFilter<"SubredditMember"> | string;
   userId?: Prisma.StringWithAggregatesFilter<"SubredditMember"> | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleWithAggregatesFilter<"SubredditMember">
-    | $Enums.SubredditMemberRole;
   createdAt?:
     | Prisma.DateTimeWithAggregatesFilter<"SubredditMember">
     | Date
@@ -280,7 +262,6 @@ export type SubredditMemberScalarWhereWithAggregatesInput = {
 
 export type SubredditMemberCreateInput = {
   id?: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
   subreddit: Prisma.SubredditCreateNestedOneWithoutMembersInput;
@@ -291,16 +272,12 @@ export type SubredditMemberUncheckedCreateInput = {
   id?: string;
   subredditId: string;
   userId: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
 
 export type SubredditMemberUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   subreddit?: Prisma.SubredditUpdateOneRequiredWithoutMembersNestedInput;
@@ -311,9 +288,6 @@ export type SubredditMemberUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
   subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
   userId?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -322,16 +296,12 @@ export type SubredditMemberCreateManyInput = {
   id?: string;
   subredditId: string;
   userId: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
 
 export type SubredditMemberUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -340,9 +310,6 @@ export type SubredditMemberUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
   subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
   userId?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -366,7 +333,6 @@ export type SubredditMemberCountOrderByAggregateInput = {
   id?: Prisma.SortOrder;
   subredditId?: Prisma.SortOrder;
   userId?: Prisma.SortOrder;
-  role?: Prisma.SortOrder;
   createdAt?: Prisma.SortOrder;
   updatedAt?: Prisma.SortOrder;
 };
@@ -375,7 +341,6 @@ export type SubredditMemberMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder;
   subredditId?: Prisma.SortOrder;
   userId?: Prisma.SortOrder;
-  role?: Prisma.SortOrder;
   createdAt?: Prisma.SortOrder;
   updatedAt?: Prisma.SortOrder;
 };
@@ -384,7 +349,6 @@ export type SubredditMemberMinOrderByAggregateInput = {
   id?: Prisma.SortOrder;
   subredditId?: Prisma.SortOrder;
   userId?: Prisma.SortOrder;
-  role?: Prisma.SortOrder;
   createdAt?: Prisma.SortOrder;
   updatedAt?: Prisma.SortOrder;
 };
@@ -609,13 +573,8 @@ export type SubredditMemberUncheckedUpdateManyWithoutSubredditNestedInput = {
     | Prisma.SubredditMemberScalarWhereInput[];
 };
 
-export type EnumSubredditMemberRoleFieldUpdateOperationsInput = {
-  set?: $Enums.SubredditMemberRole;
-};
-
 export type SubredditMemberCreateWithoutUserInput = {
   id?: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
   subreddit: Prisma.SubredditCreateNestedOneWithoutMembersInput;
@@ -624,7 +583,6 @@ export type SubredditMemberCreateWithoutUserInput = {
 export type SubredditMemberUncheckedCreateWithoutUserInput = {
   id?: string;
   subredditId: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
@@ -683,16 +641,12 @@ export type SubredditMemberScalarWhereInput = {
   id?: Prisma.StringFilter<"SubredditMember"> | string;
   subredditId?: Prisma.StringFilter<"SubredditMember"> | string;
   userId?: Prisma.StringFilter<"SubredditMember"> | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFilter<"SubredditMember">
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFilter<"SubredditMember"> | Date | string;
   updatedAt?: Prisma.DateTimeFilter<"SubredditMember"> | Date | string;
 };
 
 export type SubredditMemberCreateWithoutSubredditInput = {
   id?: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
   user: Prisma.UserCreateNestedOneWithoutSubredditMembersInput;
@@ -701,7 +655,6 @@ export type SubredditMemberCreateWithoutSubredditInput = {
 export type SubredditMemberUncheckedCreateWithoutSubredditInput = {
   id?: string;
   userId: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
@@ -752,16 +705,12 @@ export type SubredditMemberUpdateManyWithWhereWithoutSubredditInput = {
 export type SubredditMemberCreateManyUserInput = {
   id?: string;
   subredditId: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
 
 export type SubredditMemberUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   subreddit?: Prisma.SubredditUpdateOneRequiredWithoutMembersNestedInput;
@@ -770,9 +719,6 @@ export type SubredditMemberUpdateWithoutUserInput = {
 export type SubredditMemberUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
   subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -780,9 +726,6 @@ export type SubredditMemberUncheckedUpdateWithoutUserInput = {
 export type SubredditMemberUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
   subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -790,16 +733,12 @@ export type SubredditMemberUncheckedUpdateManyWithoutUserInput = {
 export type SubredditMemberCreateManySubredditInput = {
   id?: string;
   userId: string;
-  role?: $Enums.SubredditMemberRole;
   createdAt?: Date | string;
   updatedAt?: Date | string;
 };
 
 export type SubredditMemberUpdateWithoutSubredditInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   user?: Prisma.UserUpdateOneRequiredWithoutSubredditMembersNestedInput;
@@ -808,9 +747,6 @@ export type SubredditMemberUpdateWithoutSubredditInput = {
 export type SubredditMemberUncheckedUpdateWithoutSubredditInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
   userId?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -818,9 +754,6 @@ export type SubredditMemberUncheckedUpdateWithoutSubredditInput = {
 export type SubredditMemberUncheckedUpdateManyWithoutSubredditInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string;
   userId?: Prisma.StringFieldUpdateOperationsInput | string;
-  role?:
-    | Prisma.EnumSubredditMemberRoleFieldUpdateOperationsInput
-    | $Enums.SubredditMemberRole;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -833,7 +766,6 @@ export type SubredditMemberSelect<
     id?: boolean;
     subredditId?: boolean;
     userId?: boolean;
-    role?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
@@ -850,7 +782,6 @@ export type SubredditMemberSelectCreateManyAndReturn<
     id?: boolean;
     subredditId?: boolean;
     userId?: boolean;
-    role?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
@@ -867,7 +798,6 @@ export type SubredditMemberSelectUpdateManyAndReturn<
     id?: boolean;
     subredditId?: boolean;
     userId?: boolean;
-    role?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
@@ -880,7 +810,6 @@ export type SubredditMemberSelectScalar = {
   id?: boolean;
   subredditId?: boolean;
   userId?: boolean;
-  role?: boolean;
   createdAt?: boolean;
   updatedAt?: boolean;
 };
@@ -889,7 +818,7 @@ export type SubredditMemberOmit<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetOmit<
-  "id" | "subredditId" | "userId" | "role" | "createdAt" | "updatedAt",
+  "id" | "subredditId" | "userId" | "createdAt" | "updatedAt",
   ExtArgs["result"]["subredditMember"]
 >;
 export type SubredditMemberInclude<
@@ -928,7 +857,6 @@ export type $SubredditMemberPayload<
       id: string;
       subredditId: string;
       userId: string;
-      role: $Enums.SubredditMemberRole;
       createdAt: Date;
       updatedAt: Date;
     },
@@ -1566,7 +1494,6 @@ export interface SubredditMemberFieldRefs {
   readonly id: Prisma.FieldRef<"SubredditMember", "String">;
   readonly subredditId: Prisma.FieldRef<"SubredditMember", "String">;
   readonly userId: Prisma.FieldRef<"SubredditMember", "String">;
-  readonly role: Prisma.FieldRef<"SubredditMember", "SubredditMemberRole">;
   readonly createdAt: Prisma.FieldRef<"SubredditMember", "DateTime">;
   readonly updatedAt: Prisma.FieldRef<"SubredditMember", "DateTime">;
 }

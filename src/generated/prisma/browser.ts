@@ -47,6 +47,11 @@ export type Subreddit = Prisma.SubredditModel;
  */
 export type SubredditMember = Prisma.SubredditMemberModel;
 /**
+ * Model SubredditModerator
+ *
+ */
+export type SubredditModerator = Prisma.SubredditModeratorModel;
+/**
  * Model Post
  *
  */

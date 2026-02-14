@@ -418,6 +418,7 @@ export const ModelName = {
   Verification: "Verification",
   Subreddit: "Subreddit",
   SubredditMember: "SubredditMember",
+  SubredditModerator: "SubredditModerator",
   Post: "Post",
   Comment: "Comment",
   PostVote: "PostVote",
@@ -450,6 +451,7 @@ export type TypeMap<
       | "verification"
       | "subreddit"
       | "subredditMember"
+      | "subredditModerator"
       | "post"
       | "comment"
       | "postVote"
@@ -913,6 +915,82 @@ export type TypeMap<
         };
       };
     };
+    SubredditModerator: {
+      payload: Prisma.$SubredditModeratorPayload<ExtArgs>;
+      fields: Prisma.SubredditModeratorFieldRefs;
+      operations: {
+        findUnique: {
+          args: Prisma.SubredditModeratorFindUniqueArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload> | null;
+        };
+        findUniqueOrThrow: {
+          args: Prisma.SubredditModeratorFindUniqueOrThrowArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>;
+        };
+        findFirst: {
+          args: Prisma.SubredditModeratorFindFirstArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload> | null;
+        };
+        findFirstOrThrow: {
+          args: Prisma.SubredditModeratorFindFirstOrThrowArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>;
+        };
+        findMany: {
+          args: Prisma.SubredditModeratorFindManyArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>[];
+        };
+        create: {
+          args: Prisma.SubredditModeratorCreateArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>;
+        };
+        createMany: {
+          args: Prisma.SubredditModeratorCreateManyArgs<ExtArgs>;
+          result: BatchPayload;
+        };
+        createManyAndReturn: {
+          args: Prisma.SubredditModeratorCreateManyAndReturnArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>[];
+        };
+        delete: {
+          args: Prisma.SubredditModeratorDeleteArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>;
+        };
+        update: {
+          args: Prisma.SubredditModeratorUpdateArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>;
+        };
+        deleteMany: {
+          args: Prisma.SubredditModeratorDeleteManyArgs<ExtArgs>;
+          result: BatchPayload;
+        };
+        updateMany: {
+          args: Prisma.SubredditModeratorUpdateManyArgs<ExtArgs>;
+          result: BatchPayload;
+        };
+        updateManyAndReturn: {
+          args: Prisma.SubredditModeratorUpdateManyAndReturnArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>[];
+        };
+        upsert: {
+          args: Prisma.SubredditModeratorUpsertArgs<ExtArgs>;
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SubredditModeratorPayload>;
+        };
+        aggregate: {
+          args: Prisma.SubredditModeratorAggregateArgs<ExtArgs>;
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSubredditModerator>;
+        };
+        groupBy: {
+          args: Prisma.SubredditModeratorGroupByArgs<ExtArgs>;
+          result: runtime.Types.Utils.Optional<Prisma.SubredditModeratorGroupByOutputType>[];
+        };
+        count: {
+          args: Prisma.SubredditModeratorCountArgs<ExtArgs>;
+          result:
+            | runtime.Types.Utils.Optional<Prisma.SubredditModeratorCountAggregateOutputType>
+            | number;
+        };
+      };
+    };
     Post: {
       payload: Prisma.$PostPayload<ExtArgs>;
       fields: Prisma.PostFieldRefs;
@@ -1331,13 +1409,23 @@ export const SubredditMemberScalarFieldEnum = {
   id: "id",
   subredditId: "subredditId",
   userId: "userId",
-  role: "role",
   createdAt: "createdAt",
   updatedAt: "updatedAt",
 } as const;
 
 export type SubredditMemberScalarFieldEnum =
   (typeof SubredditMemberScalarFieldEnum)[keyof typeof SubredditMemberScalarFieldEnum];
+
+export const SubredditModeratorScalarFieldEnum = {
+  id: "id",
+  subredditId: "subredditId",
+  userId: "userId",
+  createdAt: "createdAt",
+  updatedAt: "updatedAt",
+} as const;
+
+export type SubredditModeratorScalarFieldEnum =
+  (typeof SubredditModeratorScalarFieldEnum)[keyof typeof SubredditModeratorScalarFieldEnum];
 
 export const PostScalarFieldEnum = {
   id: "id",
@@ -1453,18 +1541,6 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<
   $PrismaModel,
   "DateTime[]"
 >;
-
-/**
- * Reference to a field of type 'SubredditMemberRole'
- */
-export type EnumSubredditMemberRoleFieldRefInput<$PrismaModel> =
-  FieldRefInputType<$PrismaModel, "SubredditMemberRole">;
-
-/**
- * Reference to a field of type 'SubredditMemberRole[]'
- */
-export type ListEnumSubredditMemberRoleFieldRefInput<$PrismaModel> =
-  FieldRefInputType<$PrismaModel, "SubredditMemberRole[]">;
 
 /**
  * Reference to a field of type 'VoteType'
@@ -1607,6 +1683,7 @@ export type GlobalOmitConfig = {
   verification?: Prisma.VerificationOmit;
   subreddit?: Prisma.SubredditOmit;
   subredditMember?: Prisma.SubredditMemberOmit;
+  subredditModerator?: Prisma.SubredditModeratorOmit;
   post?: Prisma.PostOmit;
   comment?: Prisma.CommentOmit;
   postVote?: Prisma.PostVoteOmit;

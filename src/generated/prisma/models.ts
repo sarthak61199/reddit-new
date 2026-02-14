@@ -13,6 +13,7 @@ export type * from "./models/Account.ts";
 export type * from "./models/Verification.ts";
 export type * from "./models/Subreddit.ts";
 export type * from "./models/SubredditMember.ts";
+export type * from "./models/SubredditModerator.ts";
 export type * from "./models/Post.ts";
 export type * from "./models/Comment.ts";
 export type * from "./models/PostVote.ts";

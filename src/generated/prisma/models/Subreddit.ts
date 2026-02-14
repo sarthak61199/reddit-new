@@ -205,6 +205,7 @@ export type SubredditWhereInput = {
   creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
   members?: Prisma.SubredditMemberListRelationFilter;
   posts?: Prisma.PostListRelationFilter;
+  moderators?: Prisma.SubredditModeratorListRelationFilter;
 };
 
 export type SubredditOrderByWithRelationInput = {
@@ -218,6 +219,7 @@ export type SubredditOrderByWithRelationInput = {
   creator?: Prisma.UserOrderByWithRelationInput;
   members?: Prisma.SubredditMemberOrderByRelationAggregateInput;
   posts?: Prisma.PostOrderByRelationAggregateInput;
+  moderators?: Prisma.SubredditModeratorOrderByRelationAggregateInput;
 };
 
 export type SubredditWhereUniqueInput = Prisma.AtLeast<
@@ -238,6 +240,7 @@ export type SubredditWhereUniqueInput = Prisma.AtLeast<
     >;
     members?: Prisma.SubredditMemberListRelationFilter;
     posts?: Prisma.PostListRelationFilter;
+    moderators?: Prisma.SubredditModeratorListRelationFilter;
   },
   "id" | "name"
 >;
@@ -288,6 +291,7 @@ export type SubredditCreateInput = {
   creator: Prisma.UserCreateNestedOneWithoutSubredditsInput;
   members?: Prisma.SubredditMemberCreateNestedManyWithoutSubredditInput;
   posts?: Prisma.PostCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditUncheckedCreateInput = {
@@ -300,6 +304,7 @@ export type SubredditUncheckedCreateInput = {
   updatedAt?: Date | string;
   members?: Prisma.SubredditMemberUncheckedCreateNestedManyWithoutSubredditInput;
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorUncheckedCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditUpdateInput = {
@@ -312,6 +317,7 @@ export type SubredditUpdateInput = {
   creator?: Prisma.UserUpdateOneRequiredWithoutSubredditsNestedInput;
   members?: Prisma.SubredditMemberUpdateManyWithoutSubredditNestedInput;
   posts?: Prisma.PostUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditUncheckedUpdateInput = {
@@ -324,6 +330,7 @@ export type SubredditUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   members?: Prisma.SubredditMemberUncheckedUpdateManyWithoutSubredditNestedInput;
   posts?: Prisma.PostUncheckedUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUncheckedUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditCreateManyInput = {
@@ -532,6 +539,32 @@ export type SubredditUpdateOneRequiredWithoutMembersNestedInput = {
   >;
 };
 
+export type SubredditCreateNestedOneWithoutModeratorsInput = {
+  create?: Prisma.XOR<
+    Prisma.SubredditCreateWithoutModeratorsInput,
+    Prisma.SubredditUncheckedCreateWithoutModeratorsInput
+  >;
+  connectOrCreate?: Prisma.SubredditCreateOrConnectWithoutModeratorsInput;
+  connect?: Prisma.SubredditWhereUniqueInput;
+};
+
+export type SubredditUpdateOneRequiredWithoutModeratorsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.SubredditCreateWithoutModeratorsInput,
+    Prisma.SubredditUncheckedCreateWithoutModeratorsInput
+  >;
+  connectOrCreate?: Prisma.SubredditCreateOrConnectWithoutModeratorsInput;
+  upsert?: Prisma.SubredditUpsertWithoutModeratorsInput;
+  connect?: Prisma.SubredditWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.SubredditUpdateToOneWithWhereWithoutModeratorsInput,
+      Prisma.SubredditUpdateWithoutModeratorsInput
+    >,
+    Prisma.SubredditUncheckedUpdateWithoutModeratorsInput
+  >;
+};
+
 export type SubredditCreateNestedOneWithoutPostsInput = {
   create?: Prisma.XOR<
     Prisma.SubredditCreateWithoutPostsInput,
@@ -567,6 +600,7 @@ export type SubredditCreateWithoutCreatorInput = {
   updatedAt?: Date | string;
   members?: Prisma.SubredditMemberCreateNestedManyWithoutSubredditInput;
   posts?: Prisma.PostCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditUncheckedCreateWithoutCreatorInput = {
@@ -578,6 +612,7 @@ export type SubredditUncheckedCreateWithoutCreatorInput = {
   updatedAt?: Date | string;
   members?: Prisma.SubredditMemberUncheckedCreateNestedManyWithoutSubredditInput;
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorUncheckedCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditCreateOrConnectWithoutCreatorInput = {
@@ -645,6 +680,7 @@ export type SubredditCreateWithoutMembersInput = {
   updatedAt?: Date | string;
   creator: Prisma.UserCreateNestedOneWithoutSubredditsInput;
   posts?: Prisma.PostCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditUncheckedCreateWithoutMembersInput = {
@@ -656,6 +692,7 @@ export type SubredditUncheckedCreateWithoutMembersInput = {
   createdAt?: Date | string;
   updatedAt?: Date | string;
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorUncheckedCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditCreateOrConnectWithoutMembersInput = {
@@ -695,6 +732,7 @@ export type SubredditUpdateWithoutMembersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   creator?: Prisma.UserUpdateOneRequiredWithoutSubredditsNestedInput;
   posts?: Prisma.PostUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditUncheckedUpdateWithoutMembersInput = {
@@ -705,6 +743,83 @@ export type SubredditUncheckedUpdateWithoutMembersInput = {
   creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  posts?: Prisma.PostUncheckedUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUncheckedUpdateManyWithoutSubredditNestedInput;
+};
+
+export type SubredditCreateWithoutModeratorsInput = {
+  id?: string;
+  name: string;
+  description?: string | null;
+  imageUrl?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  creator: Prisma.UserCreateNestedOneWithoutSubredditsInput;
+  members?: Prisma.SubredditMemberCreateNestedManyWithoutSubredditInput;
+  posts?: Prisma.PostCreateNestedManyWithoutSubredditInput;
+};
+
+export type SubredditUncheckedCreateWithoutModeratorsInput = {
+  id?: string;
+  name: string;
+  description?: string | null;
+  imageUrl?: string | null;
+  creatorId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  members?: Prisma.SubredditMemberUncheckedCreateNestedManyWithoutSubredditInput;
+  posts?: Prisma.PostUncheckedCreateNestedManyWithoutSubredditInput;
+};
+
+export type SubredditCreateOrConnectWithoutModeratorsInput = {
+  where: Prisma.SubredditWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.SubredditCreateWithoutModeratorsInput,
+    Prisma.SubredditUncheckedCreateWithoutModeratorsInput
+  >;
+};
+
+export type SubredditUpsertWithoutModeratorsInput = {
+  update: Prisma.XOR<
+    Prisma.SubredditUpdateWithoutModeratorsInput,
+    Prisma.SubredditUncheckedUpdateWithoutModeratorsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.SubredditCreateWithoutModeratorsInput,
+    Prisma.SubredditUncheckedCreateWithoutModeratorsInput
+  >;
+  where?: Prisma.SubredditWhereInput;
+};
+
+export type SubredditUpdateToOneWithWhereWithoutModeratorsInput = {
+  where?: Prisma.SubredditWhereInput;
+  data: Prisma.XOR<
+    Prisma.SubredditUpdateWithoutModeratorsInput,
+    Prisma.SubredditUncheckedUpdateWithoutModeratorsInput
+  >;
+};
+
+export type SubredditUpdateWithoutModeratorsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  name?: Prisma.StringFieldUpdateOperationsInput | string;
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  creator?: Prisma.UserUpdateOneRequiredWithoutSubredditsNestedInput;
+  members?: Prisma.SubredditMemberUpdateManyWithoutSubredditNestedInput;
+  posts?: Prisma.PostUpdateManyWithoutSubredditNestedInput;
+};
+
+export type SubredditUncheckedUpdateWithoutModeratorsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  name?: Prisma.StringFieldUpdateOperationsInput | string;
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  members?: Prisma.SubredditMemberUncheckedUpdateManyWithoutSubredditNestedInput;
   posts?: Prisma.PostUncheckedUpdateManyWithoutSubredditNestedInput;
 };
 
@@ -717,6 +832,7 @@ export type SubredditCreateWithoutPostsInput = {
   updatedAt?: Date | string;
   creator: Prisma.UserCreateNestedOneWithoutSubredditsInput;
   members?: Prisma.SubredditMemberCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditUncheckedCreateWithoutPostsInput = {
@@ -728,6 +844,7 @@ export type SubredditUncheckedCreateWithoutPostsInput = {
   createdAt?: Date | string;
   updatedAt?: Date | string;
   members?: Prisma.SubredditMemberUncheckedCreateNestedManyWithoutSubredditInput;
+  moderators?: Prisma.SubredditModeratorUncheckedCreateNestedManyWithoutSubredditInput;
 };
 
 export type SubredditCreateOrConnectWithoutPostsInput = {
@@ -767,6 +884,7 @@ export type SubredditUpdateWithoutPostsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   creator?: Prisma.UserUpdateOneRequiredWithoutSubredditsNestedInput;
   members?: Prisma.SubredditMemberUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditUncheckedUpdateWithoutPostsInput = {
@@ -778,6 +896,7 @@ export type SubredditUncheckedUpdateWithoutPostsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   members?: Prisma.SubredditMemberUncheckedUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUncheckedUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditCreateManyCreatorInput = {
@@ -798,6 +917,7 @@ export type SubredditUpdateWithoutCreatorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   members?: Prisma.SubredditMemberUpdateManyWithoutSubredditNestedInput;
   posts?: Prisma.PostUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditUncheckedUpdateWithoutCreatorInput = {
@@ -809,6 +929,7 @@ export type SubredditUncheckedUpdateWithoutCreatorInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
   members?: Prisma.SubredditMemberUncheckedUpdateManyWithoutSubredditNestedInput;
   posts?: Prisma.PostUncheckedUpdateManyWithoutSubredditNestedInput;
+  moderators?: Prisma.SubredditModeratorUncheckedUpdateManyWithoutSubredditNestedInput;
 };
 
 export type SubredditUncheckedUpdateManyWithoutCreatorInput = {
@@ -827,6 +948,7 @@ export type SubredditUncheckedUpdateManyWithoutCreatorInput = {
 export type SubredditCountOutputType = {
   members: number;
   posts: number;
+  moderators: number;
 };
 
 export type SubredditCountOutputTypeSelect<
@@ -835,6 +957,7 @@ export type SubredditCountOutputTypeSelect<
 > = {
   members?: boolean | SubredditCountOutputTypeCountMembersArgs;
   posts?: boolean | SubredditCountOutputTypeCountPostsArgs;
+  moderators?: boolean | SubredditCountOutputTypeCountModeratorsArgs;
 };
 
 /**
@@ -870,6 +993,16 @@ export type SubredditCountOutputTypeCountPostsArgs<
   where?: Prisma.PostWhereInput;
 };
 
+/**
+ * SubredditCountOutputType without action
+ */
+export type SubredditCountOutputTypeCountModeratorsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.SubredditModeratorWhereInput;
+};
+
 export type SubredditSelect<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
@@ -885,6 +1018,7 @@ export type SubredditSelect<
     creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
     members?: boolean | Prisma.Subreddit$membersArgs<ExtArgs>;
     posts?: boolean | Prisma.Subreddit$postsArgs<ExtArgs>;
+    moderators?: boolean | Prisma.Subreddit$moderatorsArgs<ExtArgs>;
     _count?: boolean | Prisma.SubredditCountOutputTypeDefaultArgs<ExtArgs>;
   },
   ExtArgs["result"]["subreddit"]
@@ -954,6 +1088,7 @@ export type SubredditInclude<
   creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
   members?: boolean | Prisma.Subreddit$membersArgs<ExtArgs>;
   posts?: boolean | Prisma.Subreddit$postsArgs<ExtArgs>;
+  moderators?: boolean | Prisma.Subreddit$moderatorsArgs<ExtArgs>;
   _count?: boolean | Prisma.SubredditCountOutputTypeDefaultArgs<ExtArgs>;
 };
 export type SubredditIncludeCreateManyAndReturn<
@@ -978,6 +1113,7 @@ export type $SubredditPayload<
     creator: Prisma.$UserPayload<ExtArgs>;
     members: Prisma.$SubredditMemberPayload<ExtArgs>[];
     posts: Prisma.$PostPayload<ExtArgs>[];
+    moderators: Prisma.$SubredditModeratorPayload<ExtArgs>[];
   };
   scalars: runtime.Types.Extensions.GetPayloadResult<
     {
@@ -1574,6 +1710,17 @@ export interface Prisma__SubredditClient<
       >
     | Null
   >;
+  moderators<T extends Prisma.Subreddit$moderatorsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.Subreddit$moderatorsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$SubredditModeratorPayload<ExtArgs>,
+        T,
+        "findMany",
+        GlobalOmitOptions
+      >
+    | Null
+  >;
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2147,6 +2294,37 @@ export type Subreddit$postsArgs<
   take?: number;
   skip?: number;
   distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[];
+};
+
+/**
+ * Subreddit.moderators
+ */
+export type Subreddit$moderatorsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the SubredditModerator
+   */
+  select?: Prisma.SubredditModeratorSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the SubredditModerator
+   */
+  omit?: Prisma.SubredditModeratorOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SubredditModeratorInclude<ExtArgs> | null;
+  where?: Prisma.SubredditModeratorWhereInput;
+  orderBy?:
+    | Prisma.SubredditModeratorOrderByWithRelationInput
+    | Prisma.SubredditModeratorOrderByWithRelationInput[];
+  cursor?: Prisma.SubredditModeratorWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.SubredditModeratorScalarFieldEnum
+    | Prisma.SubredditModeratorScalarFieldEnum[];
 };
 
 /**

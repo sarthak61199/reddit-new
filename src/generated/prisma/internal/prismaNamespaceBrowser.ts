@@ -60,6 +60,7 @@ export const ModelName = {
   Verification: "Verification",
   Subreddit: "Subreddit",
   SubredditMember: "SubredditMember",
+  SubredditModerator: "SubredditModerator",
   Post: "Post",
   Comment: "Comment",
   PostVote: "PostVote",
@@ -157,13 +158,23 @@ export const SubredditMemberScalarFieldEnum = {
   id: "id",
   subredditId: "subredditId",
   userId: "userId",
-  role: "role",
   createdAt: "createdAt",
   updatedAt: "updatedAt",
 } as const;
 
 export type SubredditMemberScalarFieldEnum =
   (typeof SubredditMemberScalarFieldEnum)[keyof typeof SubredditMemberScalarFieldEnum];
+
+export const SubredditModeratorScalarFieldEnum = {
+  id: "id",
+  subredditId: "subredditId",
+  userId: "userId",
+  createdAt: "createdAt",
+  updatedAt: "updatedAt",
+} as const;
+
+export type SubredditModeratorScalarFieldEnum =
+  (typeof SubredditModeratorScalarFieldEnum)[keyof typeof SubredditModeratorScalarFieldEnum];
 
 export const PostScalarFieldEnum = {
   id: "id",
