@@ -11,12 +11,38 @@ import { prisma } from "@/lib/db";
 
 export const getPosts = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
-  .handler();
+  .handler(async ({ context: { user } }) => {
+    const posts = await prisma.post.findMany({
+      where: {
+        subreddit: {
+          members: {
+            some: {
+              userId: user.id,
+            },
+          },
+        },
+      },
+    });
+
+    return posts;
+  });
 
 export const getPost = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
   .inputValidator(getPostSchema)
-  .handler();
+  .handler(async ({ data: { id } }) => {
+    const post = await prisma.post.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!post) {
+      throw new Error("Post not found");
+    }
+
+    return post;
+  });
 
 export const createPost = createServerFn({ method: "POST" })
   .middleware([authMiddleware])
@@ -108,6 +134,7 @@ export const votePost = createServerFn({ method: "POST" })
         id: postId,
       },
     });
+
     if (!post) {
       throw new Error("Post not found");
     }
@@ -131,7 +158,7 @@ export const votePost = createServerFn({ method: "POST" })
       });
     }
 
-    if (isVoted?.type === type) {
+    if (isVoted.type === type) {
       return await prisma.postVote.delete({
         where: {
           postId_userId: {
