@@ -49,7 +49,7 @@ function RouteComponent() {
   });
 
   return (
-    <div className="w-full max-w-sm space-y-6">
+    <div className="w-full max-w-sm space-y-6 border p-8 rounded-lg bg-primary-foreground">
       <div className="space-y-2 text-center">
         <h1 className="text-3xl font-bold tracking-tight">Welcome</h1>
         <p className="text-muted-foreground text-sm">

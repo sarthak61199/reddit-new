@@ -1,4 +1,5 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
+import Logo from "@/components/logo";
 
 export const Route = createFileRoute("/_auth")({
   component: RouteComponent,
@@ -6,8 +7,15 @@ export const Route = createFileRoute("/_auth")({
 
 function RouteComponent() {
   return (
-    <main className="h-svh grid place-items-center">
-      <Outlet />
+    <main className="h-svh flex flex-col">
+      <header className="py-6 border-b">
+        <div className="container mx-auto">
+          <Logo />
+        </div>
+      </header>
+      <main className="flex-1 grid place-items-center">
+        <Outlet />
+      </main>
     </main>
   );
 }
