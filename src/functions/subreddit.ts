@@ -5,6 +5,7 @@ import {
   createSubredditSchema,
   deleteSubredditSchema,
   getSubredditSchema,
+  joinUnjoinSubredditSchema,
   removeSubredditModeratorSchema,
   updateSubredditSchema,
 } from "@/validations/subreddit";
@@ -34,17 +35,51 @@ export const getSubreddit = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
   .inputValidator(getSubredditSchema)
   .handler(async ({ data: { id } }) => {
-    const subreddit = await prisma.subreddit.findUnique({
-      where: {
-        id,
-      },
-    });
+    const [subreddit, moderators] = await prisma.$transaction([
+      prisma.subreddit.findUnique({
+        where: {
+          id,
+        },
+        select: {
+          id: true,
+          name: true,
+          description: true,
+          creator: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+          _count: {
+            select: {
+              members: true,
+            },
+          },
+        },
+      }),
+      prisma.subredditModerator.findMany({
+        where: {
+          subredditId: id,
+        },
+        select: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      }),
+    ]);
 
     if (!subreddit) {
       throw new Error("Subreddit not found");
     }
 
-    return subreddit;
+    return {
+      ...subreddit,
+      moderators: moderators.map((moderator) => moderator.user),
+    };
   });
 
 export const createSubreddit = createServerFn({ method: "POST" })
@@ -238,4 +273,46 @@ export const removeSubredditModerator = createServerFn({ method: "POST" })
     });
 
     return { success: true };
+  });
+
+export const joinUnjoinSubreddit = createServerFn({ method: "POST" })
+  .middleware([authMiddleware])
+  .inputValidator(joinUnjoinSubredditSchema)
+  .handler(async ({ context: { user }, data: { subredditId } }) => {
+    const subreddit = await prisma.subreddit.findUnique({
+      where: {
+        id: subredditId,
+      },
+    });
+
+    if (!subreddit) {
+      throw new Error("Subreddit not found");
+    }
+
+    const isMember = await prisma.subredditMember.findUnique({
+      where: {
+        subredditId_userId: {
+          subredditId: subredditId,
+          userId: user.id,
+        },
+      },
+    });
+
+    if (isMember) {
+      await prisma.subredditMember.delete({
+        where: {
+          subredditId_userId: {
+            subredditId: subredditId,
+            userId: user.id,
+          },
+        },
+      });
+    } else {
+      await prisma.subredditMember.create({
+        data: {
+          subredditId: subredditId,
+          userId: user.id,
+        },
+      });
+    }
   });

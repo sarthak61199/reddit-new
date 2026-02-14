@@ -22,18 +22,93 @@ export const getPosts = createServerFn({ method: "GET" })
           },
         },
       },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        createdAt: true,
+        creator: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        subreddit: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        _count: {
+          select: {
+            comments: true,
+          },
+        },
+        votes: {
+          select: {
+            type: true,
+            userId: true,
+          },
+        },
+      },
     });
 
-    return posts;
+    const postsWithVoteCount = posts.map((post) => {
+      const userVote =
+        post.votes.find((v) => v.userId === user.id)?.type || null;
+      const voteCount = post.votes.reduce((acc, vote) => {
+        return acc + (vote.type === "UP" ? 1 : -1);
+      }, 0);
+
+      const { votes, _count, ...postWithoutVotes } = post;
+
+      return {
+        ...postWithoutVotes,
+        commentCount: _count.comments,
+        userVote,
+        voteCount,
+      };
+    });
+
+    return postsWithVoteCount;
   });
 
 export const getPost = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
   .inputValidator(getPostSchema)
-  .handler(async ({ data: { id } }) => {
+  .handler(async ({ context: { user }, data: { id } }) => {
     const post = await prisma.post.findUnique({
       where: {
         id,
+      },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        createdAt: true,
+        creator: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        subreddit: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        _count: {
+          select: {
+            comments: true,
+          },
+        },
+        votes: {
+          select: {
+            type: true,
+            userId: true,
+          },
+        },
       },
     });
 
@@ -41,7 +116,19 @@ export const getPost = createServerFn({ method: "GET" })
       throw new Error("Post not found");
     }
 
-    return post;
+    const userVote = post.votes.find((v) => v.userId === user.id)?.type || null;
+    const voteCount = post.votes.reduce((acc, vote) => {
+      return acc + (vote.type === "UP" ? 1 : -1);
+    }, 0);
+
+    const { votes, _count, ...postWithoutVotes } = post;
+
+    return {
+      ...postWithoutVotes,
+      userVote,
+      commentCount: _count.comments,
+      voteCount,
+    };
   });
 
 export const createPost = createServerFn({ method: "POST" })

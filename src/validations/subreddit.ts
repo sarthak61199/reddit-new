@@ -28,3 +28,7 @@ export const removeSubredditModeratorSchema = z.object({
   subredditId: z.ulid().nonempty(),
   userId: z.ulid().nonempty(),
 });
+
+export const joinUnjoinSubredditSchema = z.object({
+  subredditId: z.ulid().nonempty(),
+});

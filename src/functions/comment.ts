@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import type { VoteType } from "@/generated/prisma/enums";
 import { authMiddleware } from "@/middleware/auth";
 import {
   createCommentSchema,
@@ -12,7 +13,7 @@ import { prisma } from "@/lib/db";
 export const getComments = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
   .inputValidator(getCommentsSchema)
-  .handler(async ({ data: { postId } }) => {
+  .handler(async ({ context: { user }, data: { postId } }) => {
     const post = await prisma.post.findUnique({
       where: {
         id: postId,
@@ -27,9 +28,78 @@ export const getComments = createServerFn({ method: "GET" })
       where: {
         postId: postId,
       },
+      select: {
+        id: true,
+        content: true,
+        createdAt: true,
+        parentId: true,
+        creator: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        _count: {
+          select: {
+            votes: true,
+          },
+        },
+        votes: {
+          select: {
+            type: true,
+            userId: true,
+          },
+        },
+      },
     });
 
-    return comments;
+    type CommentWithVotes = {
+      id: string;
+      content: string;
+      createdAt: Date;
+      parentId: string | null;
+      creator: {
+        id: string;
+        name: string;
+      };
+      userVote: VoteType | null;
+      voteCount: number;
+      replies: Array<CommentWithVotes>;
+    };
+
+    const commentsWithVotes: Array<CommentWithVotes> = comments.map(
+      (comment) => {
+        const userVote =
+          comment.votes.find((v) => v.userId === user.id)?.type || null;
+        const voteCount = comment.votes.reduce((acc, vote) => {
+          return acc + (vote.type === "UP" ? 1 : -1);
+        }, 0);
+
+        const { votes, _count, ...commentWithoutVotes } = comment;
+        return {
+          ...commentWithoutVotes,
+          userVote,
+          voteCount,
+          replies: [],
+        };
+      },
+    );
+
+    const commentMap = new Map(commentsWithVotes.map((c) => [c.id, c]));
+    const rootComments: Array<CommentWithVotes> = [];
+
+    for (const comment of commentsWithVotes) {
+      if (comment.parentId) {
+        const parent = commentMap.get(comment.parentId);
+        if (parent) {
+          parent.replies.push(comment);
+        }
+      } else {
+        rootComments.push(comment);
+      }
+    }
+
+    return rootComments;
   });
 
 export const createComment = createServerFn({ method: "POST" })
