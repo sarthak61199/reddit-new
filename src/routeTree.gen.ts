@@ -9,71 +9,154 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainRouteImport } from './routes/_main'
+import { Route as AuthRouteImport } from './routes/_auth'
+import { Route as MainIndexRouteImport } from './routes/_main/index'
+import { Route as AuthSignUpRouteImport } from './routes/_auth/sign-up'
+import { Route as AuthSignInRouteImport } from './routes/_auth/sign-in'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as MainSubredditSubredditIdIndexRouteImport } from './routes/_main/subreddit/$subredditId/index'
+import { Route as MainSubredditSubredditIdPostPostIdIndexRouteImport } from './routes/_main/subreddit/$subredditId/post/$postId/index'
 
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
+const MainRoute = MainRouteImport.update({
+  id: '/_main',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const AuthRoute = AuthRouteImport.update({
+  id: '/_auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainIndexRoute = MainIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => MainRoute,
+} as any)
+const AuthSignUpRoute = AuthSignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthSignInRoute = AuthSignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => AuthRoute,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MainSubredditSubredditIdIndexRoute =
+  MainSubredditSubredditIdIndexRouteImport.update({
+    id: '/subreddit/$subredditId/',
+    path: '/subreddit/$subredditId/',
+    getParentRoute: () => MainRoute,
+  } as any)
+const MainSubredditSubredditIdPostPostIdIndexRoute =
+  MainSubredditSubredditIdPostPostIdIndexRouteImport.update({
+    id: '/subreddit/$subredditId/post/$postId/',
+    path: '/subreddit/$subredditId/post/$postId/',
+    getParentRoute: () => MainRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
+  '/': typeof MainIndexRoute
+  '/sign-in': typeof AuthSignInRoute
+  '/sign-up': typeof AuthSignUpRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/subreddit/$subredditId/': typeof MainSubredditSubredditIdIndexRoute
+  '/subreddit/$subredditId/post/$postId/': typeof MainSubredditSubredditIdPostPostIdIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
+  '/': typeof MainIndexRoute
+  '/sign-in': typeof AuthSignInRoute
+  '/sign-up': typeof AuthSignUpRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/subreddit/$subredditId': typeof MainSubredditSubredditIdIndexRoute
+  '/subreddit/$subredditId/post/$postId': typeof MainSubredditSubredditIdPostPostIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/login': typeof LoginRoute
+  '/_auth': typeof AuthRouteWithChildren
+  '/_main': typeof MainRouteWithChildren
+  '/_auth/sign-in': typeof AuthSignInRoute
+  '/_auth/sign-up': typeof AuthSignUpRoute
+  '/_main/': typeof MainIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/_main/subreddit/$subredditId/': typeof MainSubredditSubredditIdIndexRoute
+  '/_main/subreddit/$subredditId/post/$postId/': typeof MainSubredditSubredditIdPostPostIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/api/auth/$'
+  fullPaths:
+    | '/'
+    | '/sign-in'
+    | '/sign-up'
+    | '/api/auth/$'
+    | '/subreddit/$subredditId/'
+    | '/subreddit/$subredditId/post/$postId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/api/auth/$'
-  id: '__root__' | '/' | '/login' | '/api/auth/$'
+  to:
+    | '/'
+    | '/sign-in'
+    | '/sign-up'
+    | '/api/auth/$'
+    | '/subreddit/$subredditId'
+    | '/subreddit/$subredditId/post/$postId'
+  id:
+    | '__root__'
+    | '/_auth'
+    | '/_main'
+    | '/_auth/sign-in'
+    | '/_auth/sign-up'
+    | '/_main/'
+    | '/api/auth/$'
+    | '/_main/subreddit/$subredditId/'
+    | '/_main/subreddit/$subredditId/post/$postId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  LoginRoute: typeof LoginRoute
+  AuthRoute: typeof AuthRouteWithChildren
+  MainRoute: typeof MainRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
+    '/_main': {
+      id: '/_main'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof MainRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/_auth': {
+      id: '/_auth'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_main/': {
+      id: '/_main/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof MainIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_auth/sign-up': {
+      id: '/_auth/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof AuthSignUpRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/_auth/sign-in': {
+      id: '/_auth/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof AuthSignInRouteImport
+      parentRoute: typeof AuthRoute
     }
     '/api/auth/$': {
       id: '/api/auth/$'
@@ -82,12 +165,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_main/subreddit/$subredditId/': {
+      id: '/_main/subreddit/$subredditId/'
+      path: '/subreddit/$subredditId'
+      fullPath: '/subreddit/$subredditId/'
+      preLoaderRoute: typeof MainSubredditSubredditIdIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/subreddit/$subredditId/post/$postId/': {
+      id: '/_main/subreddit/$subredditId/post/$postId/'
+      path: '/subreddit/$subredditId/post/$postId'
+      fullPath: '/subreddit/$subredditId/post/$postId/'
+      preLoaderRoute: typeof MainSubredditSubredditIdPostPostIdIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
   }
 }
 
+interface AuthRouteChildren {
+  AuthSignInRoute: typeof AuthSignInRoute
+  AuthSignUpRoute: typeof AuthSignUpRoute
+}
+
+const AuthRouteChildren: AuthRouteChildren = {
+  AuthSignInRoute: AuthSignInRoute,
+  AuthSignUpRoute: AuthSignUpRoute,
+}
+
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+
+interface MainRouteChildren {
+  MainIndexRoute: typeof MainIndexRoute
+  MainSubredditSubredditIdIndexRoute: typeof MainSubredditSubredditIdIndexRoute
+  MainSubredditSubredditIdPostPostIdIndexRoute: typeof MainSubredditSubredditIdPostPostIdIndexRoute
+}
+
+const MainRouteChildren: MainRouteChildren = {
+  MainIndexRoute: MainIndexRoute,
+  MainSubredditSubredditIdIndexRoute: MainSubredditSubredditIdIndexRoute,
+  MainSubredditSubredditIdPostPostIdIndexRoute:
+    MainSubredditSubredditIdPostPostIdIndexRoute,
+}
+
+const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  LoginRoute: LoginRoute,
+  AuthRoute: AuthRouteWithChildren,
+  MainRoute: MainRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
