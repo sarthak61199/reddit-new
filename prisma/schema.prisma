@@ -123,7 +123,6 @@ model Post {
   id          String     @id @default(ulid())
   title       String
   content     String?
-  imageUrl    String?
   creatorId   String
   creator     User       @relation(fields: [creatorId], references: [id], onDelete: Cascade)
   subredditId String

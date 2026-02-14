@@ -9,16 +9,16 @@
  */
 
 export const SubredditMemberRole = {
-  USER: 'USER',
-  MODERATOR: 'MODERATOR',
-} as const
+  USER: "USER",
+  MODERATOR: "MODERATOR",
+} as const;
 
 export type SubredditMemberRole =
-  (typeof SubredditMemberRole)[keyof typeof SubredditMemberRole]
+  (typeof SubredditMemberRole)[keyof typeof SubredditMemberRole];
 
 export const VoteType = {
-  UP: 'UP',
-  DOWN: 'DOWN',
-} as const
+  UP: "UP",
+  DOWN: "DOWN",
+} as const;
 
-export type VoteType = (typeof VoteType)[keyof typeof VoteType]
+export type VoteType = (typeof VoteType)[keyof typeof VoteType];

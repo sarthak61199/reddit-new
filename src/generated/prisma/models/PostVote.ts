@@ -7,78 +7,78 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from '@prisma/client/runtime/client'
-import type * as $Enums from '../enums.ts'
-import type * as Prisma from '../internal/prismaNamespace.ts'
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.ts";
+import type * as Prisma from "../internal/prismaNamespace.ts";
 
 /**
  * Model PostVote
  *
  */
 export type PostVoteModel =
-  runtime.Types.Result.DefaultSelection<Prisma.$PostVotePayload>
+  runtime.Types.Result.DefaultSelection<Prisma.$PostVotePayload>;
 
 export type AggregatePostVote = {
-  _count: PostVoteCountAggregateOutputType | null
-  _min: PostVoteMinAggregateOutputType | null
-  _max: PostVoteMaxAggregateOutputType | null
-}
+  _count: PostVoteCountAggregateOutputType | null;
+  _min: PostVoteMinAggregateOutputType | null;
+  _max: PostVoteMaxAggregateOutputType | null;
+};
 
 export type PostVoteMinAggregateOutputType = {
-  id: string | null
-  postId: string | null
-  userId: string | null
-  createdAt: Date | null
-  updatedAt: Date | null
-  type: $Enums.VoteType | null
-}
+  id: string | null;
+  postId: string | null;
+  userId: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+  type: $Enums.VoteType | null;
+};
 
 export type PostVoteMaxAggregateOutputType = {
-  id: string | null
-  postId: string | null
-  userId: string | null
-  createdAt: Date | null
-  updatedAt: Date | null
-  type: $Enums.VoteType | null
-}
+  id: string | null;
+  postId: string | null;
+  userId: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+  type: $Enums.VoteType | null;
+};
 
 export type PostVoteCountAggregateOutputType = {
-  id: number
-  postId: number
-  userId: number
-  createdAt: number
-  updatedAt: number
-  type: number
-  _all: number
-}
+  id: number;
+  postId: number;
+  userId: number;
+  createdAt: number;
+  updatedAt: number;
+  type: number;
+  _all: number;
+};
 
 export type PostVoteMinAggregateInputType = {
-  id?: true
-  postId?: true
-  userId?: true
-  createdAt?: true
-  updatedAt?: true
-  type?: true
-}
+  id?: true;
+  postId?: true;
+  userId?: true;
+  createdAt?: true;
+  updatedAt?: true;
+  type?: true;
+};
 
 export type PostVoteMaxAggregateInputType = {
-  id?: true
-  postId?: true
-  userId?: true
-  createdAt?: true
-  updatedAt?: true
-  type?: true
-}
+  id?: true;
+  postId?: true;
+  userId?: true;
+  createdAt?: true;
+  updatedAt?: true;
+  type?: true;
+};
 
 export type PostVoteCountAggregateInputType = {
-  id?: true
-  postId?: true
-  userId?: true
-  createdAt?: true
-  updatedAt?: true
-  type?: true
-  _all?: true
-}
+  id?: true;
+  postId?: true;
+  userId?: true;
+  createdAt?: true;
+  updatedAt?: true;
+  type?: true;
+  _all?: true;
+};
 
 export type PostVoteAggregateArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
@@ -87,7 +87,7 @@ export type PostVoteAggregateArgs<
   /**
    * Filter which PostVote to aggregate.
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -95,268 +95,268 @@ export type PostVoteAggregateArgs<
    */
   orderBy?:
     | Prisma.PostVoteOrderByWithRelationInput
-    | Prisma.PostVoteOrderByWithRelationInput[]
+    | Prisma.PostVoteOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the start position
    */
-  cursor?: Prisma.PostVoteWhereUniqueInput
+  cursor?: Prisma.PostVoteWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` PostVotes from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` PostVotes.
    */
-  skip?: number
+  skip?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    *
    * Count returned PostVotes
    **/
-  _count?: true | PostVoteCountAggregateInputType
+  _count?: true | PostVoteCountAggregateInputType;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    *
    * Select which fields to find the minimum value
    **/
-  _min?: PostVoteMinAggregateInputType
+  _min?: PostVoteMinAggregateInputType;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    *
    * Select which fields to find the maximum value
    **/
-  _max?: PostVoteMaxAggregateInputType
-}
+  _max?: PostVoteMaxAggregateInputType;
+};
 
 export type GetPostVoteAggregateType<T extends PostVoteAggregateArgs> = {
-  [P in keyof T & keyof AggregatePostVote]: P extends '_count' | 'count'
+  [P in keyof T & keyof AggregatePostVote]: P extends "_count" | "count"
     ? T[P] extends true
       ? number
       : Prisma.GetScalarType<T[P], AggregatePostVote[P]>
-    : Prisma.GetScalarType<T[P], AggregatePostVote[P]>
-}
+    : Prisma.GetScalarType<T[P], AggregatePostVote[P]>;
+};
 
 export type PostVoteGroupByArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   orderBy?:
     | Prisma.PostVoteOrderByWithAggregationInput
-    | Prisma.PostVoteOrderByWithAggregationInput[]
-  by: Prisma.PostVoteScalarFieldEnum[] | Prisma.PostVoteScalarFieldEnum
-  having?: Prisma.PostVoteScalarWhereWithAggregatesInput
-  take?: number
-  skip?: number
-  _count?: PostVoteCountAggregateInputType | true
-  _min?: PostVoteMinAggregateInputType
-  _max?: PostVoteMaxAggregateInputType
-}
+    | Prisma.PostVoteOrderByWithAggregationInput[];
+  by: Prisma.PostVoteScalarFieldEnum[] | Prisma.PostVoteScalarFieldEnum;
+  having?: Prisma.PostVoteScalarWhereWithAggregatesInput;
+  take?: number;
+  skip?: number;
+  _count?: PostVoteCountAggregateInputType | true;
+  _min?: PostVoteMinAggregateInputType;
+  _max?: PostVoteMaxAggregateInputType;
+};
 
 export type PostVoteGroupByOutputType = {
-  id: string
-  postId: string
-  userId: string
-  createdAt: Date
-  updatedAt: Date
-  type: $Enums.VoteType
-  _count: PostVoteCountAggregateOutputType | null
-  _min: PostVoteMinAggregateOutputType | null
-  _max: PostVoteMaxAggregateOutputType | null
-}
+  id: string;
+  postId: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  type: $Enums.VoteType;
+  _count: PostVoteCountAggregateOutputType | null;
+  _min: PostVoteMinAggregateOutputType | null;
+  _max: PostVoteMaxAggregateOutputType | null;
+};
 
 type GetPostVoteGroupByPayload<T extends PostVoteGroupByArgs> =
   Prisma.PrismaPromise<
     Array<
-      Prisma.PickEnumerable<PostVoteGroupByOutputType, T['by']> & {
-        [P in keyof T & keyof PostVoteGroupByOutputType]: P extends '_count'
+      Prisma.PickEnumerable<PostVoteGroupByOutputType, T["by"]> & {
+        [P in keyof T & keyof PostVoteGroupByOutputType]: P extends "_count"
           ? T[P] extends boolean
             ? number
             : Prisma.GetScalarType<T[P], PostVoteGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], PostVoteGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], PostVoteGroupByOutputType[P]>;
       }
     >
-  >
+  >;
 
 export type PostVoteWhereInput = {
-  AND?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[]
-  OR?: Prisma.PostVoteWhereInput[]
-  NOT?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[]
-  id?: Prisma.StringFilter<'PostVote'> | string
-  postId?: Prisma.StringFilter<'PostVote'> | string
-  userId?: Prisma.StringFilter<'PostVote'> | string
-  createdAt?: Prisma.DateTimeFilter<'PostVote'> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<'PostVote'> | Date | string
-  type?: Prisma.EnumVoteTypeFilter<'PostVote'> | $Enums.VoteType
-  post?: Prisma.XOR<Prisma.PostScalarRelationFilter, Prisma.PostWhereInput>
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}
+  AND?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[];
+  OR?: Prisma.PostVoteWhereInput[];
+  NOT?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[];
+  id?: Prisma.StringFilter<"PostVote"> | string;
+  postId?: Prisma.StringFilter<"PostVote"> | string;
+  userId?: Prisma.StringFilter<"PostVote"> | string;
+  createdAt?: Prisma.DateTimeFilter<"PostVote"> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<"PostVote"> | Date | string;
+  type?: Prisma.EnumVoteTypeFilter<"PostVote"> | $Enums.VoteType;
+  post?: Prisma.XOR<Prisma.PostScalarRelationFilter, Prisma.PostWhereInput>;
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+};
 
 export type PostVoteOrderByWithRelationInput = {
-  id?: Prisma.SortOrder
-  postId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-  post?: Prisma.PostOrderByWithRelationInput
-  user?: Prisma.UserOrderByWithRelationInput
-}
+  id?: Prisma.SortOrder;
+  postId?: Prisma.SortOrder;
+  userId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  type?: Prisma.SortOrder;
+  post?: Prisma.PostOrderByWithRelationInput;
+  user?: Prisma.UserOrderByWithRelationInput;
+};
 
 export type PostVoteWhereUniqueInput = Prisma.AtLeast<
   {
-    id?: string
-    postId_userId?: Prisma.PostVotePostIdUserIdCompoundUniqueInput
-    AND?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[]
-    OR?: Prisma.PostVoteWhereInput[]
-    NOT?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[]
-    postId?: Prisma.StringFilter<'PostVote'> | string
-    userId?: Prisma.StringFilter<'PostVote'> | string
-    createdAt?: Prisma.DateTimeFilter<'PostVote'> | Date | string
-    updatedAt?: Prisma.DateTimeFilter<'PostVote'> | Date | string
-    type?: Prisma.EnumVoteTypeFilter<'PostVote'> | $Enums.VoteType
-    post?: Prisma.XOR<Prisma.PostScalarRelationFilter, Prisma.PostWhereInput>
-    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+    id?: string;
+    postId_userId?: Prisma.PostVotePostIdUserIdCompoundUniqueInput;
+    AND?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[];
+    OR?: Prisma.PostVoteWhereInput[];
+    NOT?: Prisma.PostVoteWhereInput | Prisma.PostVoteWhereInput[];
+    postId?: Prisma.StringFilter<"PostVote"> | string;
+    userId?: Prisma.StringFilter<"PostVote"> | string;
+    createdAt?: Prisma.DateTimeFilter<"PostVote"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"PostVote"> | Date | string;
+    type?: Prisma.EnumVoteTypeFilter<"PostVote"> | $Enums.VoteType;
+    post?: Prisma.XOR<Prisma.PostScalarRelationFilter, Prisma.PostWhereInput>;
+    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
   },
-  'id' | 'postId_userId'
->
+  "id" | "postId_userId"
+>;
 
 export type PostVoteOrderByWithAggregationInput = {
-  id?: Prisma.SortOrder
-  postId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-  _count?: Prisma.PostVoteCountOrderByAggregateInput
-  _max?: Prisma.PostVoteMaxOrderByAggregateInput
-  _min?: Prisma.PostVoteMinOrderByAggregateInput
-}
+  id?: Prisma.SortOrder;
+  postId?: Prisma.SortOrder;
+  userId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  type?: Prisma.SortOrder;
+  _count?: Prisma.PostVoteCountOrderByAggregateInput;
+  _max?: Prisma.PostVoteMaxOrderByAggregateInput;
+  _min?: Prisma.PostVoteMinOrderByAggregateInput;
+};
 
 export type PostVoteScalarWhereWithAggregatesInput = {
   AND?:
     | Prisma.PostVoteScalarWhereWithAggregatesInput
-    | Prisma.PostVoteScalarWhereWithAggregatesInput[]
-  OR?: Prisma.PostVoteScalarWhereWithAggregatesInput[]
+    | Prisma.PostVoteScalarWhereWithAggregatesInput[];
+  OR?: Prisma.PostVoteScalarWhereWithAggregatesInput[];
   NOT?:
     | Prisma.PostVoteScalarWhereWithAggregatesInput
-    | Prisma.PostVoteScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<'PostVote'> | string
-  postId?: Prisma.StringWithAggregatesFilter<'PostVote'> | string
-  userId?: Prisma.StringWithAggregatesFilter<'PostVote'> | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<'PostVote'> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<'PostVote'> | Date | string
-  type?: Prisma.EnumVoteTypeWithAggregatesFilter<'PostVote'> | $Enums.VoteType
-}
+    | Prisma.PostVoteScalarWhereWithAggregatesInput[];
+  id?: Prisma.StringWithAggregatesFilter<"PostVote"> | string;
+  postId?: Prisma.StringWithAggregatesFilter<"PostVote"> | string;
+  userId?: Prisma.StringWithAggregatesFilter<"PostVote"> | string;
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"PostVote"> | Date | string;
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"PostVote"> | Date | string;
+  type?: Prisma.EnumVoteTypeWithAggregatesFilter<"PostVote"> | $Enums.VoteType;
+};
 
 export type PostVoteCreateInput = {
-  id?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-  post: Prisma.PostCreateNestedOneWithoutVotesInput
-  user: Prisma.UserCreateNestedOneWithoutPostVotesInput
-}
+  id?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+  post: Prisma.PostCreateNestedOneWithoutVotesInput;
+  user: Prisma.UserCreateNestedOneWithoutPostVotesInput;
+};
 
 export type PostVoteUncheckedCreateInput = {
-  id?: string
-  postId: string
-  userId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-}
+  id?: string;
+  postId: string;
+  userId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+};
 
 export type PostVoteUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-  post?: Prisma.PostUpdateOneRequiredWithoutVotesNestedInput
-  user?: Prisma.UserUpdateOneRequiredWithoutPostVotesNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+  post?: Prisma.PostUpdateOneRequiredWithoutVotesNestedInput;
+  user?: Prisma.UserUpdateOneRequiredWithoutPostVotesNestedInput;
+};
 
 export type PostVoteUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  postId?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  postId?: Prisma.StringFieldUpdateOperationsInput | string;
+  userId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteCreateManyInput = {
-  id?: string
-  postId: string
-  userId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-}
+  id?: string;
+  postId: string;
+  userId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+};
 
 export type PostVoteUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteUncheckedUpdateManyInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  postId?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  postId?: Prisma.StringFieldUpdateOperationsInput | string;
+  userId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteListRelationFilter = {
-  every?: Prisma.PostVoteWhereInput
-  some?: Prisma.PostVoteWhereInput
-  none?: Prisma.PostVoteWhereInput
-}
+  every?: Prisma.PostVoteWhereInput;
+  some?: Prisma.PostVoteWhereInput;
+  none?: Prisma.PostVoteWhereInput;
+};
 
 export type PostVoteOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
-}
+  _count?: Prisma.SortOrder;
+};
 
 export type PostVotePostIdUserIdCompoundUniqueInput = {
-  postId: string
-  userId: string
-}
+  postId: string;
+  userId: string;
+};
 
 export type PostVoteCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  postId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-}
+  id?: Prisma.SortOrder;
+  postId?: Prisma.SortOrder;
+  userId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  type?: Prisma.SortOrder;
+};
 
 export type PostVoteMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  postId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-}
+  id?: Prisma.SortOrder;
+  postId?: Prisma.SortOrder;
+  userId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  type?: Prisma.SortOrder;
+};
 
 export type PostVoteMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  postId?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-}
+  id?: Prisma.SortOrder;
+  postId?: Prisma.SortOrder;
+  userId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  type?: Prisma.SortOrder;
+};
 
 export type PostVoteCreateNestedManyWithoutUserInput = {
   create?:
@@ -365,13 +365,13 @@ export type PostVoteCreateNestedManyWithoutUserInput = {
         Prisma.PostVoteUncheckedCreateWithoutUserInput
       >
     | Prisma.PostVoteCreateWithoutUserInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutUserInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutUserInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutUserInput
-    | Prisma.PostVoteCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-}
+    | Prisma.PostVoteCreateOrConnectWithoutUserInput[];
+  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope;
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+};
 
 export type PostVoteUncheckedCreateNestedManyWithoutUserInput = {
   create?:
@@ -380,13 +380,13 @@ export type PostVoteUncheckedCreateNestedManyWithoutUserInput = {
         Prisma.PostVoteUncheckedCreateWithoutUserInput
       >
     | Prisma.PostVoteCreateWithoutUserInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutUserInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutUserInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutUserInput
-    | Prisma.PostVoteCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-}
+    | Prisma.PostVoteCreateOrConnectWithoutUserInput[];
+  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope;
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+};
 
 export type PostVoteUpdateManyWithoutUserNestedInput = {
   create?:
@@ -395,30 +395,30 @@ export type PostVoteUpdateManyWithoutUserNestedInput = {
         Prisma.PostVoteUncheckedCreateWithoutUserInput
       >
     | Prisma.PostVoteCreateWithoutUserInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutUserInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutUserInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutUserInput
-    | Prisma.PostVoteCreateOrConnectWithoutUserInput[]
+    | Prisma.PostVoteCreateOrConnectWithoutUserInput[];
   upsert?:
     | Prisma.PostVoteUpsertWithWhereUniqueWithoutUserInput
-    | Prisma.PostVoteUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope
-  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteUpsertWithWhereUniqueWithoutUserInput[];
+  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope;
+  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   disconnect?:
     | Prisma.PostVoteWhereUniqueInput
-    | Prisma.PostVoteWhereUniqueInput[]
-  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteWhereUniqueInput[];
+  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   update?:
     | Prisma.PostVoteUpdateWithWhereUniqueWithoutUserInput
-    | Prisma.PostVoteUpdateWithWhereUniqueWithoutUserInput[]
+    | Prisma.PostVoteUpdateWithWhereUniqueWithoutUserInput[];
   updateMany?:
     | Prisma.PostVoteUpdateManyWithWhereWithoutUserInput
-    | Prisma.PostVoteUpdateManyWithWhereWithoutUserInput[]
+    | Prisma.PostVoteUpdateManyWithWhereWithoutUserInput[];
   deleteMany?:
     | Prisma.PostVoteScalarWhereInput
-    | Prisma.PostVoteScalarWhereInput[]
-}
+    | Prisma.PostVoteScalarWhereInput[];
+};
 
 export type PostVoteUncheckedUpdateManyWithoutUserNestedInput = {
   create?:
@@ -427,30 +427,30 @@ export type PostVoteUncheckedUpdateManyWithoutUserNestedInput = {
         Prisma.PostVoteUncheckedCreateWithoutUserInput
       >
     | Prisma.PostVoteCreateWithoutUserInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutUserInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutUserInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutUserInput
-    | Prisma.PostVoteCreateOrConnectWithoutUserInput[]
+    | Prisma.PostVoteCreateOrConnectWithoutUserInput[];
   upsert?:
     | Prisma.PostVoteUpsertWithWhereUniqueWithoutUserInput
-    | Prisma.PostVoteUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope
-  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteUpsertWithWhereUniqueWithoutUserInput[];
+  createMany?: Prisma.PostVoteCreateManyUserInputEnvelope;
+  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   disconnect?:
     | Prisma.PostVoteWhereUniqueInput
-    | Prisma.PostVoteWhereUniqueInput[]
-  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteWhereUniqueInput[];
+  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   update?:
     | Prisma.PostVoteUpdateWithWhereUniqueWithoutUserInput
-    | Prisma.PostVoteUpdateWithWhereUniqueWithoutUserInput[]
+    | Prisma.PostVoteUpdateWithWhereUniqueWithoutUserInput[];
   updateMany?:
     | Prisma.PostVoteUpdateManyWithWhereWithoutUserInput
-    | Prisma.PostVoteUpdateManyWithWhereWithoutUserInput[]
+    | Prisma.PostVoteUpdateManyWithWhereWithoutUserInput[];
   deleteMany?:
     | Prisma.PostVoteScalarWhereInput
-    | Prisma.PostVoteScalarWhereInput[]
-}
+    | Prisma.PostVoteScalarWhereInput[];
+};
 
 export type PostVoteCreateNestedManyWithoutPostInput = {
   create?:
@@ -459,13 +459,13 @@ export type PostVoteCreateNestedManyWithoutPostInput = {
         Prisma.PostVoteUncheckedCreateWithoutPostInput
       >
     | Prisma.PostVoteCreateWithoutPostInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutPostInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutPostInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutPostInput
-    | Prisma.PostVoteCreateOrConnectWithoutPostInput[]
-  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-}
+    | Prisma.PostVoteCreateOrConnectWithoutPostInput[];
+  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope;
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+};
 
 export type PostVoteUncheckedCreateNestedManyWithoutPostInput = {
   create?:
@@ -474,13 +474,13 @@ export type PostVoteUncheckedCreateNestedManyWithoutPostInput = {
         Prisma.PostVoteUncheckedCreateWithoutPostInput
       >
     | Prisma.PostVoteCreateWithoutPostInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutPostInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutPostInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutPostInput
-    | Prisma.PostVoteCreateOrConnectWithoutPostInput[]
-  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-}
+    | Prisma.PostVoteCreateOrConnectWithoutPostInput[];
+  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope;
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+};
 
 export type PostVoteUpdateManyWithoutPostNestedInput = {
   create?:
@@ -489,30 +489,30 @@ export type PostVoteUpdateManyWithoutPostNestedInput = {
         Prisma.PostVoteUncheckedCreateWithoutPostInput
       >
     | Prisma.PostVoteCreateWithoutPostInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutPostInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutPostInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutPostInput
-    | Prisma.PostVoteCreateOrConnectWithoutPostInput[]
+    | Prisma.PostVoteCreateOrConnectWithoutPostInput[];
   upsert?:
     | Prisma.PostVoteUpsertWithWhereUniqueWithoutPostInput
-    | Prisma.PostVoteUpsertWithWhereUniqueWithoutPostInput[]
-  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope
-  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteUpsertWithWhereUniqueWithoutPostInput[];
+  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope;
+  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   disconnect?:
     | Prisma.PostVoteWhereUniqueInput
-    | Prisma.PostVoteWhereUniqueInput[]
-  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteWhereUniqueInput[];
+  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   update?:
     | Prisma.PostVoteUpdateWithWhereUniqueWithoutPostInput
-    | Prisma.PostVoteUpdateWithWhereUniqueWithoutPostInput[]
+    | Prisma.PostVoteUpdateWithWhereUniqueWithoutPostInput[];
   updateMany?:
     | Prisma.PostVoteUpdateManyWithWhereWithoutPostInput
-    | Prisma.PostVoteUpdateManyWithWhereWithoutPostInput[]
+    | Prisma.PostVoteUpdateManyWithWhereWithoutPostInput[];
   deleteMany?:
     | Prisma.PostVoteScalarWhereInput
-    | Prisma.PostVoteScalarWhereInput[]
-}
+    | Prisma.PostVoteScalarWhereInput[];
+};
 
 export type PostVoteUncheckedUpdateManyWithoutPostNestedInput = {
   create?:
@@ -521,351 +521,351 @@ export type PostVoteUncheckedUpdateManyWithoutPostNestedInput = {
         Prisma.PostVoteUncheckedCreateWithoutPostInput
       >
     | Prisma.PostVoteCreateWithoutPostInput[]
-    | Prisma.PostVoteUncheckedCreateWithoutPostInput[]
+    | Prisma.PostVoteUncheckedCreateWithoutPostInput[];
   connectOrCreate?:
     | Prisma.PostVoteCreateOrConnectWithoutPostInput
-    | Prisma.PostVoteCreateOrConnectWithoutPostInput[]
+    | Prisma.PostVoteCreateOrConnectWithoutPostInput[];
   upsert?:
     | Prisma.PostVoteUpsertWithWhereUniqueWithoutPostInput
-    | Prisma.PostVoteUpsertWithWhereUniqueWithoutPostInput[]
-  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope
-  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteUpsertWithWhereUniqueWithoutPostInput[];
+  createMany?: Prisma.PostVoteCreateManyPostInputEnvelope;
+  set?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   disconnect?:
     | Prisma.PostVoteWhereUniqueInput
-    | Prisma.PostVoteWhereUniqueInput[]
-  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
-  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[]
+    | Prisma.PostVoteWhereUniqueInput[];
+  delete?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
+  connect?: Prisma.PostVoteWhereUniqueInput | Prisma.PostVoteWhereUniqueInput[];
   update?:
     | Prisma.PostVoteUpdateWithWhereUniqueWithoutPostInput
-    | Prisma.PostVoteUpdateWithWhereUniqueWithoutPostInput[]
+    | Prisma.PostVoteUpdateWithWhereUniqueWithoutPostInput[];
   updateMany?:
     | Prisma.PostVoteUpdateManyWithWhereWithoutPostInput
-    | Prisma.PostVoteUpdateManyWithWhereWithoutPostInput[]
+    | Prisma.PostVoteUpdateManyWithWhereWithoutPostInput[];
   deleteMany?:
     | Prisma.PostVoteScalarWhereInput
-    | Prisma.PostVoteScalarWhereInput[]
-}
+    | Prisma.PostVoteScalarWhereInput[];
+};
 
 export type EnumVoteTypeFieldUpdateOperationsInput = {
-  set?: $Enums.VoteType
-}
+  set?: $Enums.VoteType;
+};
 
 export type PostVoteCreateWithoutUserInput = {
-  id?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-  post: Prisma.PostCreateNestedOneWithoutVotesInput
-}
+  id?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+  post: Prisma.PostCreateNestedOneWithoutVotesInput;
+};
 
 export type PostVoteUncheckedCreateWithoutUserInput = {
-  id?: string
-  postId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-}
+  id?: string;
+  postId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+};
 
 export type PostVoteCreateOrConnectWithoutUserInput = {
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   create: Prisma.XOR<
     Prisma.PostVoteCreateWithoutUserInput,
     Prisma.PostVoteUncheckedCreateWithoutUserInput
-  >
-}
+  >;
+};
 
 export type PostVoteCreateManyUserInputEnvelope = {
   data:
     | Prisma.PostVoteCreateManyUserInput
-    | Prisma.PostVoteCreateManyUserInput[]
-  skipDuplicates?: boolean
-}
+    | Prisma.PostVoteCreateManyUserInput[];
+  skipDuplicates?: boolean;
+};
 
 export type PostVoteUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   update: Prisma.XOR<
     Prisma.PostVoteUpdateWithoutUserInput,
     Prisma.PostVoteUncheckedUpdateWithoutUserInput
-  >
+  >;
   create: Prisma.XOR<
     Prisma.PostVoteCreateWithoutUserInput,
     Prisma.PostVoteUncheckedCreateWithoutUserInput
-  >
-}
+  >;
+};
 
 export type PostVoteUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   data: Prisma.XOR<
     Prisma.PostVoteUpdateWithoutUserInput,
     Prisma.PostVoteUncheckedUpdateWithoutUserInput
-  >
-}
+  >;
+};
 
 export type PostVoteUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.PostVoteScalarWhereInput
+  where: Prisma.PostVoteScalarWhereInput;
   data: Prisma.XOR<
     Prisma.PostVoteUpdateManyMutationInput,
     Prisma.PostVoteUncheckedUpdateManyWithoutUserInput
-  >
-}
+  >;
+};
 
 export type PostVoteScalarWhereInput = {
-  AND?: Prisma.PostVoteScalarWhereInput | Prisma.PostVoteScalarWhereInput[]
-  OR?: Prisma.PostVoteScalarWhereInput[]
-  NOT?: Prisma.PostVoteScalarWhereInput | Prisma.PostVoteScalarWhereInput[]
-  id?: Prisma.StringFilter<'PostVote'> | string
-  postId?: Prisma.StringFilter<'PostVote'> | string
-  userId?: Prisma.StringFilter<'PostVote'> | string
-  createdAt?: Prisma.DateTimeFilter<'PostVote'> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<'PostVote'> | Date | string
-  type?: Prisma.EnumVoteTypeFilter<'PostVote'> | $Enums.VoteType
-}
+  AND?: Prisma.PostVoteScalarWhereInput | Prisma.PostVoteScalarWhereInput[];
+  OR?: Prisma.PostVoteScalarWhereInput[];
+  NOT?: Prisma.PostVoteScalarWhereInput | Prisma.PostVoteScalarWhereInput[];
+  id?: Prisma.StringFilter<"PostVote"> | string;
+  postId?: Prisma.StringFilter<"PostVote"> | string;
+  userId?: Prisma.StringFilter<"PostVote"> | string;
+  createdAt?: Prisma.DateTimeFilter<"PostVote"> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<"PostVote"> | Date | string;
+  type?: Prisma.EnumVoteTypeFilter<"PostVote"> | $Enums.VoteType;
+};
 
 export type PostVoteCreateWithoutPostInput = {
-  id?: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-  user: Prisma.UserCreateNestedOneWithoutPostVotesInput
-}
+  id?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+  user: Prisma.UserCreateNestedOneWithoutPostVotesInput;
+};
 
 export type PostVoteUncheckedCreateWithoutPostInput = {
-  id?: string
-  userId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-}
+  id?: string;
+  userId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+};
 
 export type PostVoteCreateOrConnectWithoutPostInput = {
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   create: Prisma.XOR<
     Prisma.PostVoteCreateWithoutPostInput,
     Prisma.PostVoteUncheckedCreateWithoutPostInput
-  >
-}
+  >;
+};
 
 export type PostVoteCreateManyPostInputEnvelope = {
   data:
     | Prisma.PostVoteCreateManyPostInput
-    | Prisma.PostVoteCreateManyPostInput[]
-  skipDuplicates?: boolean
-}
+    | Prisma.PostVoteCreateManyPostInput[];
+  skipDuplicates?: boolean;
+};
 
 export type PostVoteUpsertWithWhereUniqueWithoutPostInput = {
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   update: Prisma.XOR<
     Prisma.PostVoteUpdateWithoutPostInput,
     Prisma.PostVoteUncheckedUpdateWithoutPostInput
-  >
+  >;
   create: Prisma.XOR<
     Prisma.PostVoteCreateWithoutPostInput,
     Prisma.PostVoteUncheckedCreateWithoutPostInput
-  >
-}
+  >;
+};
 
 export type PostVoteUpdateWithWhereUniqueWithoutPostInput = {
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   data: Prisma.XOR<
     Prisma.PostVoteUpdateWithoutPostInput,
     Prisma.PostVoteUncheckedUpdateWithoutPostInput
-  >
-}
+  >;
+};
 
 export type PostVoteUpdateManyWithWhereWithoutPostInput = {
-  where: Prisma.PostVoteScalarWhereInput
+  where: Prisma.PostVoteScalarWhereInput;
   data: Prisma.XOR<
     Prisma.PostVoteUpdateManyMutationInput,
     Prisma.PostVoteUncheckedUpdateManyWithoutPostInput
-  >
-}
+  >;
+};
 
 export type PostVoteCreateManyUserInput = {
-  id?: string
-  postId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-}
+  id?: string;
+  postId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+};
 
 export type PostVoteUpdateWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-  post?: Prisma.PostUpdateOneRequiredWithoutVotesNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+  post?: Prisma.PostUpdateOneRequiredWithoutVotesNestedInput;
+};
 
 export type PostVoteUncheckedUpdateWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  postId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  postId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteUncheckedUpdateManyWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  postId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  postId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteCreateManyPostInput = {
-  id?: string
-  userId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  type: $Enums.VoteType
-}
+  id?: string;
+  userId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  type: $Enums.VoteType;
+};
 
 export type PostVoteUpdateWithoutPostInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-  user?: Prisma.UserUpdateOneRequiredWithoutPostVotesNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+  user?: Prisma.UserUpdateOneRequiredWithoutPostVotesNestedInput;
+};
 
 export type PostVoteUncheckedUpdateWithoutPostInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  userId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteUncheckedUpdateManyWithoutPostInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  userId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  type?: Prisma.EnumVoteTypeFieldUpdateOperationsInput | $Enums.VoteType;
+};
 
 export type PostVoteSelect<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
   {
-    id?: boolean
-    postId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    type?: boolean
-    post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
-    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+    id?: boolean;
+    postId?: boolean;
+    userId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    type?: boolean;
+    post?: boolean | Prisma.PostDefaultArgs<ExtArgs>;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
   },
-  ExtArgs['result']['postVote']
->
+  ExtArgs["result"]["postVote"]
+>;
 
 export type PostVoteSelectCreateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
   {
-    id?: boolean
-    postId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    type?: boolean
-    post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
-    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+    id?: boolean;
+    postId?: boolean;
+    userId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    type?: boolean;
+    post?: boolean | Prisma.PostDefaultArgs<ExtArgs>;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
   },
-  ExtArgs['result']['postVote']
->
+  ExtArgs["result"]["postVote"]
+>;
 
 export type PostVoteSelectUpdateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
   {
-    id?: boolean
-    postId?: boolean
-    userId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    type?: boolean
-    post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
-    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+    id?: boolean;
+    postId?: boolean;
+    userId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    type?: boolean;
+    post?: boolean | Prisma.PostDefaultArgs<ExtArgs>;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
   },
-  ExtArgs['result']['postVote']
->
+  ExtArgs["result"]["postVote"]
+>;
 
 export type PostVoteSelectScalar = {
-  id?: boolean
-  postId?: boolean
-  userId?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
-  type?: boolean
-}
+  id?: boolean;
+  postId?: boolean;
+  userId?: boolean;
+  createdAt?: boolean;
+  updatedAt?: boolean;
+  type?: boolean;
+};
 
 export type PostVoteOmit<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetOmit<
-  'id' | 'postId' | 'userId' | 'createdAt' | 'updatedAt' | 'type',
-  ExtArgs['result']['postVote']
->
+  "id" | "postId" | "userId" | "createdAt" | "updatedAt" | "type",
+  ExtArgs["result"]["postVote"]
+>;
 export type PostVoteInclude<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}
+  post?: boolean | Prisma.PostDefaultArgs<ExtArgs>;
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
 export type PostVoteIncludeCreateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}
+  post?: boolean | Prisma.PostDefaultArgs<ExtArgs>;
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
 export type PostVoteIncludeUpdateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  post?: boolean | Prisma.PostDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-}
+  post?: boolean | Prisma.PostDefaultArgs<ExtArgs>;
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
 
 export type $PostVotePayload<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  name: 'PostVote'
+  name: "PostVote";
   objects: {
-    post: Prisma.$PostPayload<ExtArgs>
-    user: Prisma.$UserPayload<ExtArgs>
-  }
+    post: Prisma.$PostPayload<ExtArgs>;
+    user: Prisma.$UserPayload<ExtArgs>;
+  };
   scalars: runtime.Types.Extensions.GetPayloadResult<
     {
-      id: string
-      postId: string
-      userId: string
-      createdAt: Date
-      updatedAt: Date
-      type: $Enums.VoteType
+      id: string;
+      postId: string;
+      userId: string;
+      createdAt: Date;
+      updatedAt: Date;
+      type: $Enums.VoteType;
     },
-    ExtArgs['result']['postVote']
-  >
-  composites: {}
-}
+    ExtArgs["result"]["postVote"]
+  >;
+  composites: {};
+};
 
 export type PostVoteGetPayload<
   S extends boolean | null | undefined | PostVoteDefaultArgs,
-> = runtime.Types.Result.GetResult<Prisma.$PostVotePayload, S>
+> = runtime.Types.Result.GetResult<Prisma.$PostVotePayload, S>;
 
 export type PostVoteCountArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
-> = Omit<PostVoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-  select?: PostVoteCountAggregateInputType | true
-}
+> = Omit<PostVoteFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+  select?: PostVoteCountAggregateInputType | true;
+};
 
 export interface PostVoteDelegate<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
@@ -873,9 +873,9 @@ export interface PostVoteDelegate<
   GlobalOmitOptions = {},
 > {
   [K: symbol]: {
-    types: Prisma.TypeMap<ExtArgs>['model']['PostVote']
-    meta: { name: 'PostVote' }
-  }
+    types: Prisma.TypeMap<ExtArgs>["model"]["PostVote"];
+    meta: { name: "PostVote" };
+  };
   /**
    * Find zero or one PostVote that matches the filter.
    * @param {PostVoteFindUniqueArgs} args - Arguments to find a PostVote
@@ -893,13 +893,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'findUnique',
+      "findUnique",
       GlobalOmitOptions
     > | null,
     null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find one PostVote that matches the filter or throw an error with `error.code='P2025'`
@@ -919,13 +919,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'findUniqueOrThrow',
+      "findUniqueOrThrow",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find the first PostVote that matches the filter.
@@ -946,13 +946,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'findFirst',
+      "findFirst",
       GlobalOmitOptions
     > | null,
     null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find the first PostVote that matches the filter or
@@ -974,13 +974,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'findFirstOrThrow',
+      "findFirstOrThrow",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find zero or more PostVotes that matches the filter.
@@ -1004,10 +1004,10 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'findMany',
+      "findMany",
       GlobalOmitOptions
     >
-  >
+  >;
 
   /**
    * Create a PostVote.
@@ -1027,13 +1027,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'create',
+      "create",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Create many PostVotes.
@@ -1049,7 +1049,7 @@ export interface PostVoteDelegate<
    */
   createMany<T extends PostVoteCreateManyArgs>(
     args?: Prisma.SelectSubset<T, PostVoteCreateManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+  ): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
   /**
    * Create many PostVotes and returns the data saved in the database.
@@ -1079,10 +1079,10 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'createManyAndReturn',
+      "createManyAndReturn",
       GlobalOmitOptions
     >
-  >
+  >;
 
   /**
    * Delete a PostVote.
@@ -1102,13 +1102,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'delete',
+      "delete",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Update one PostVote.
@@ -1131,13 +1131,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'update',
+      "update",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Delete zero or more PostVotes.
@@ -1153,7 +1153,7 @@ export interface PostVoteDelegate<
    */
   deleteMany<T extends PostVoteDeleteManyArgs>(
     args?: Prisma.SelectSubset<T, PostVoteDeleteManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+  ): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
   /**
    * Update zero or more PostVotes.
@@ -1174,7 +1174,7 @@ export interface PostVoteDelegate<
    */
   updateMany<T extends PostVoteUpdateManyArgs>(
     args: Prisma.SelectSubset<T, PostVoteUpdateManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+  ): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
   /**
    * Update zero or more PostVotes and returns the data updated in the database.
@@ -1210,10 +1210,10 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'updateManyAndReturn',
+      "updateManyAndReturn",
       GlobalOmitOptions
     >
-  >
+  >;
 
   /**
    * Create or update one PostVote.
@@ -1238,13 +1238,13 @@ export interface PostVoteDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostVotePayload<ExtArgs>,
       T,
-      'upsert',
+      "upsert",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Count the number of PostVotes.
@@ -1262,12 +1262,12 @@ export interface PostVoteDelegate<
   count<T extends PostVoteCountArgs>(
     args?: Prisma.Subset<T, PostVoteCountArgs>,
   ): Prisma.PrismaPromise<
-    T extends runtime.Types.Utils.Record<'select', any>
-      ? T['select'] extends true
+    T extends runtime.Types.Utils.Record<"select", any>
+      ? T["select"] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], PostVoteCountAggregateOutputType>
+        : Prisma.GetScalarType<T["select"], PostVoteCountAggregateOutputType>
       : number
-  >
+  >;
 
   /**
    * Allows you to perform aggregations operations on a PostVote.
@@ -1295,7 +1295,7 @@ export interface PostVoteDelegate<
    **/
   aggregate<T extends PostVoteAggregateArgs>(
     args: Prisma.Subset<T, PostVoteAggregateArgs>,
-  ): Prisma.PrismaPromise<GetPostVoteAggregateType<T>>
+  ): Prisma.PrismaPromise<GetPostVoteAggregateType<T>>;
 
   /**
    * Group by PostVote.
@@ -1318,20 +1318,20 @@ export interface PostVoteDelegate<
   groupBy<
     T extends PostVoteGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
-      Prisma.Extends<'skip', Prisma.Keys<T>>,
-      Prisma.Extends<'take', Prisma.Keys<T>>
+      Prisma.Extends<"skip", Prisma.Keys<T>>,
+      Prisma.Extends<"take", Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: PostVoteGroupByArgs['orderBy'] }
-      : { orderBy?: PostVoteGroupByArgs['orderBy'] },
+      ? { orderBy: PostVoteGroupByArgs["orderBy"] }
+      : { orderBy?: PostVoteGroupByArgs["orderBy"] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<
-      Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>
+      Prisma.Keys<Prisma.MaybeTupleToUnion<T["orderBy"]>>
     >,
-    ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
+    ByFields extends Prisma.MaybeTupleToUnion<T["by"]>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
-    HavingFields extends Prisma.GetHavingFields<T['having']>,
+    HavingFields extends Prisma.GetHavingFields<T["having"]>,
     HavingValid extends Prisma.Has<ByFields, HavingFields>,
-    ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False,
+    ByEmpty extends T["by"] extends never[] ? Prisma.True : Prisma.False,
     InputErrors extends ByEmpty extends Prisma.True
       ? `Error: "by" must not be empty.`
       : HavingValid extends Prisma.False
@@ -1342,29 +1342,29 @@ export interface PostVoteDelegate<
                 ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
                 : [
                     Error,
-                    'Field ',
+                    "Field ",
                     P,
                     ` in "having" needs to be provided in "by"`,
-                  ]
+                  ];
           }[HavingFields]
-        : 'take' extends Prisma.Keys<T>
-          ? 'orderBy' extends Prisma.Keys<T>
+        : "take" extends Prisma.Keys<T>
+          ? "orderBy" extends Prisma.Keys<T>
             ? ByValid extends Prisma.True
               ? {}
               : {
                   [P in OrderFields]: P extends ByFields
                     ? never
-                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                 }[OrderFields]
             : 'Error: If you provide "take", you also need to provide "orderBy"'
-          : 'skip' extends Prisma.Keys<T>
-            ? 'orderBy' extends Prisma.Keys<T>
+          : "skip" extends Prisma.Keys<T>
+            ? "orderBy" extends Prisma.Keys<T>
               ? ByValid extends Prisma.True
                 ? {}
                 : {
                     [P in OrderFields]: P extends ByFields
                       ? never
-                      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+                      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                   }[OrderFields]
               : 'Error: If you provide "skip", you also need to provide "orderBy"'
             : ByValid extends Prisma.True
@@ -1372,18 +1372,18 @@ export interface PostVoteDelegate<
               : {
                   [P in OrderFields]: P extends ByFields
                     ? never
-                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                 }[OrderFields],
   >(
     args: Prisma.SubsetIntersection<T, PostVoteGroupByArgs, OrderByArg> &
       InputErrors,
   ): {} extends InputErrors
     ? GetPostVoteGroupByPayload<T>
-    : Prisma.PrismaPromise<InputErrors>
+    : Prisma.PrismaPromise<InputErrors>;
   /**
    * Fields of the PostVote model
    */
-  readonly fields: PostVoteFieldRefs
+  readonly fields: PostVoteFieldRefs;
 }
 
 /**
@@ -1399,35 +1399,35 @@ export interface Prisma__PostVoteClient<
     runtime.Types.Extensions.DefaultArgs,
   GlobalOmitOptions = {},
 > extends Prisma.PrismaPromise<T> {
-  readonly [Symbol.toStringTag]: 'PrismaPromise'
+  readonly [Symbol.toStringTag]: "PrismaPromise";
   post<T extends Prisma.PostDefaultArgs<ExtArgs> = {}>(
     args?: Prisma.Subset<T, Prisma.PostDefaultArgs<ExtArgs>>,
   ): Prisma.Prisma__PostClient<
     | runtime.Types.Result.GetResult<
         Prisma.$PostPayload<ExtArgs>,
         T,
-        'findUniqueOrThrow',
+        "findUniqueOrThrow",
         GlobalOmitOptions
       >
     | Null,
     Null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(
     args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>,
   ): Prisma.Prisma__UserClient<
     | runtime.Types.Result.GetResult<
         Prisma.$UserPayload<ExtArgs>,
         T,
-        'findUniqueOrThrow',
+        "findUniqueOrThrow",
         GlobalOmitOptions
       >
     | Null,
     Null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1443,7 +1443,7 @@ export interface Prisma__PostVoteClient<
       | ((reason: any) => TResult2 | PromiseLike<TResult2>)
       | undefined
       | null,
-  ): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
+  ): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
   /**
    * Attaches a callback for only the rejection of the Promise.
    * @param onrejected The callback to execute when the Promise is rejected.
@@ -1454,7 +1454,7 @@ export interface Prisma__PostVoteClient<
       | ((reason: any) => TResult | PromiseLike<TResult>)
       | undefined
       | null,
-  ): runtime.Types.Utils.JsPromise<T | TResult>
+  ): runtime.Types.Utils.JsPromise<T | TResult>;
   /**
    * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
    * resolved value cannot be modified from the callback.
@@ -1463,19 +1463,19 @@ export interface Prisma__PostVoteClient<
    */
   finally(
     onfinally?: (() => void) | undefined | null,
-  ): runtime.Types.Utils.JsPromise<T>
+  ): runtime.Types.Utils.JsPromise<T>;
 }
 
 /**
  * Fields of the PostVote model
  */
 export interface PostVoteFieldRefs {
-  readonly id: Prisma.FieldRef<'PostVote', 'String'>
-  readonly postId: Prisma.FieldRef<'PostVote', 'String'>
-  readonly userId: Prisma.FieldRef<'PostVote', 'String'>
-  readonly createdAt: Prisma.FieldRef<'PostVote', 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<'PostVote', 'DateTime'>
-  readonly type: Prisma.FieldRef<'PostVote', 'VoteType'>
+  readonly id: Prisma.FieldRef<"PostVote", "String">;
+  readonly postId: Prisma.FieldRef<"PostVote", "String">;
+  readonly userId: Prisma.FieldRef<"PostVote", "String">;
+  readonly createdAt: Prisma.FieldRef<"PostVote", "DateTime">;
+  readonly updatedAt: Prisma.FieldRef<"PostVote", "DateTime">;
+  readonly type: Prisma.FieldRef<"PostVote", "VoteType">;
 }
 
 // Custom InputTypes
@@ -1489,20 +1489,20 @@ export type PostVoteFindUniqueArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * Filter, which PostVote to fetch.
    */
-  where: Prisma.PostVoteWhereUniqueInput
-}
+  where: Prisma.PostVoteWhereUniqueInput;
+};
 
 /**
  * PostVote findUniqueOrThrow
@@ -1514,20 +1514,20 @@ export type PostVoteFindUniqueOrThrowArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * Filter, which PostVote to fetch.
    */
-  where: Prisma.PostVoteWhereUniqueInput
-}
+  where: Prisma.PostVoteWhereUniqueInput;
+};
 
 /**
  * PostVote findFirst
@@ -1539,19 +1539,19 @@ export type PostVoteFindFirstArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * Filter, which PostVote to fetch.
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -1559,32 +1559,32 @@ export type PostVoteFindFirstArgs<
    */
   orderBy?:
     | Prisma.PostVoteOrderByWithRelationInput
-    | Prisma.PostVoteOrderByWithRelationInput[]
+    | Prisma.PostVoteOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the position for searching for PostVotes.
    */
-  cursor?: Prisma.PostVoteWhereUniqueInput
+  cursor?: Prisma.PostVoteWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` PostVotes from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` PostVotes.
    */
-  skip?: number
+  skip?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    *
    * Filter by unique combinations of PostVotes.
    */
-  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[]
-}
+  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[];
+};
 
 /**
  * PostVote findFirstOrThrow
@@ -1596,19 +1596,19 @@ export type PostVoteFindFirstOrThrowArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * Filter, which PostVote to fetch.
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -1616,32 +1616,32 @@ export type PostVoteFindFirstOrThrowArgs<
    */
   orderBy?:
     | Prisma.PostVoteOrderByWithRelationInput
-    | Prisma.PostVoteOrderByWithRelationInput[]
+    | Prisma.PostVoteOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the position for searching for PostVotes.
    */
-  cursor?: Prisma.PostVoteWhereUniqueInput
+  cursor?: Prisma.PostVoteWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` PostVotes from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` PostVotes.
    */
-  skip?: number
+  skip?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    *
    * Filter by unique combinations of PostVotes.
    */
-  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[]
-}
+  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[];
+};
 
 /**
  * PostVote findMany
@@ -1653,19 +1653,19 @@ export type PostVoteFindManyArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * Filter, which PostVotes to fetch.
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -1673,27 +1673,27 @@ export type PostVoteFindManyArgs<
    */
   orderBy?:
     | Prisma.PostVoteOrderByWithRelationInput
-    | Prisma.PostVoteOrderByWithRelationInput[]
+    | Prisma.PostVoteOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the position for listing PostVotes.
    */
-  cursor?: Prisma.PostVoteWhereUniqueInput
+  cursor?: Prisma.PostVoteWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` PostVotes from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` PostVotes.
    */
-  skip?: number
-  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[]
-}
+  skip?: number;
+  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[];
+};
 
 /**
  * PostVote create
@@ -1705,23 +1705,23 @@ export type PostVoteCreateArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * The data needed to create a PostVote.
    */
   data: Prisma.XOR<
     Prisma.PostVoteCreateInput,
     Prisma.PostVoteUncheckedCreateInput
-  >
-}
+  >;
+};
 
 /**
  * PostVote createMany
@@ -1733,9 +1733,9 @@ export type PostVoteCreateManyArgs<
   /**
    * The data used to create many PostVotes.
    */
-  data: Prisma.PostVoteCreateManyInput | Prisma.PostVoteCreateManyInput[]
-  skipDuplicates?: boolean
-}
+  data: Prisma.PostVoteCreateManyInput | Prisma.PostVoteCreateManyInput[];
+  skipDuplicates?: boolean;
+};
 
 /**
  * PostVote createManyAndReturn
@@ -1747,21 +1747,21 @@ export type PostVoteCreateManyAndReturnArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.PostVoteSelectCreateManyAndReturn<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * The data used to create many PostVotes.
    */
-  data: Prisma.PostVoteCreateManyInput | Prisma.PostVoteCreateManyInput[]
-  skipDuplicates?: boolean
+  data: Prisma.PostVoteCreateManyInput | Prisma.PostVoteCreateManyInput[];
+  skipDuplicates?: boolean;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteIncludeCreateManyAndReturn<ExtArgs> | null
-}
+  include?: Prisma.PostVoteIncludeCreateManyAndReturn<ExtArgs> | null;
+};
 
 /**
  * PostVote update
@@ -1773,27 +1773,27 @@ export type PostVoteUpdateArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * The data needed to update a PostVote.
    */
   data: Prisma.XOR<
     Prisma.PostVoteUpdateInput,
     Prisma.PostVoteUncheckedUpdateInput
-  >
+  >;
   /**
    * Choose, which PostVote to update.
    */
-  where: Prisma.PostVoteWhereUniqueInput
-}
+  where: Prisma.PostVoteWhereUniqueInput;
+};
 
 /**
  * PostVote updateMany
@@ -1808,16 +1808,16 @@ export type PostVoteUpdateManyArgs<
   data: Prisma.XOR<
     Prisma.PostVoteUpdateManyMutationInput,
     Prisma.PostVoteUncheckedUpdateManyInput
-  >
+  >;
   /**
    * Filter which PostVotes to update
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * Limit how many PostVotes to update.
    */
-  limit?: number
-}
+  limit?: number;
+};
 
 /**
  * PostVote updateManyAndReturn
@@ -1829,31 +1829,31 @@ export type PostVoteUpdateManyAndReturnArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.PostVoteSelectUpdateManyAndReturn<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * The data used to update PostVotes.
    */
   data: Prisma.XOR<
     Prisma.PostVoteUpdateManyMutationInput,
     Prisma.PostVoteUncheckedUpdateManyInput
-  >
+  >;
   /**
    * Filter which PostVotes to update
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * Limit how many PostVotes to update.
    */
-  limit?: number
+  limit?: number;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteIncludeUpdateManyAndReturn<ExtArgs> | null
-}
+  include?: Prisma.PostVoteIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
 
 /**
  * PostVote upsert
@@ -1865,34 +1865,34 @@ export type PostVoteUpsertArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * The filter to search for the PostVote to update in case it exists.
    */
-  where: Prisma.PostVoteWhereUniqueInput
+  where: Prisma.PostVoteWhereUniqueInput;
   /**
    * In case the PostVote found by the `where` argument doesn't exist, create a new PostVote with this data.
    */
   create: Prisma.XOR<
     Prisma.PostVoteCreateInput,
     Prisma.PostVoteUncheckedCreateInput
-  >
+  >;
   /**
    * In case the PostVote was found with the provided `where` argument, update it with this data.
    */
   update: Prisma.XOR<
     Prisma.PostVoteUpdateInput,
     Prisma.PostVoteUncheckedUpdateInput
-  >
-}
+  >;
+};
 
 /**
  * PostVote delete
@@ -1904,20 +1904,20 @@ export type PostVoteDeleteArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
   /**
    * Filter which PostVote to delete.
    */
-  where: Prisma.PostVoteWhereUniqueInput
-}
+  where: Prisma.PostVoteWhereUniqueInput;
+};
 
 /**
  * PostVote deleteMany
@@ -1929,12 +1929,12 @@ export type PostVoteDeleteManyArgs<
   /**
    * Filter which PostVotes to delete
    */
-  where?: Prisma.PostVoteWhereInput
+  where?: Prisma.PostVoteWhereInput;
   /**
    * Limit how many PostVotes to delete.
    */
-  limit?: number
-}
+  limit?: number;
+};
 
 /**
  * PostVote without action
@@ -1946,13 +1946,13 @@ export type PostVoteDefaultArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
-}
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
+};

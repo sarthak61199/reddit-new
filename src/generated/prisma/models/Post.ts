@@ -7,90 +7,84 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from '@prisma/client/runtime/client'
-import type * as $Enums from '../enums.ts'
-import type * as Prisma from '../internal/prismaNamespace.ts'
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.ts";
+import type * as Prisma from "../internal/prismaNamespace.ts";
 
 /**
  * Model Post
  *
  */
 export type PostModel =
-  runtime.Types.Result.DefaultSelection<Prisma.$PostPayload>
+  runtime.Types.Result.DefaultSelection<Prisma.$PostPayload>;
 
 export type AggregatePost = {
-  _count: PostCountAggregateOutputType | null
-  _min: PostMinAggregateOutputType | null
-  _max: PostMaxAggregateOutputType | null
-}
+  _count: PostCountAggregateOutputType | null;
+  _min: PostMinAggregateOutputType | null;
+  _max: PostMaxAggregateOutputType | null;
+};
 
 export type PostMinAggregateOutputType = {
-  id: string | null
-  title: string | null
-  content: string | null
-  imageUrl: string | null
-  creatorId: string | null
-  subredditId: string | null
-  createdAt: Date | null
-  updatedAt: Date | null
-}
+  id: string | null;
+  title: string | null;
+  content: string | null;
+  creatorId: string | null;
+  subredditId: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+};
 
 export type PostMaxAggregateOutputType = {
-  id: string | null
-  title: string | null
-  content: string | null
-  imageUrl: string | null
-  creatorId: string | null
-  subredditId: string | null
-  createdAt: Date | null
-  updatedAt: Date | null
-}
+  id: string | null;
+  title: string | null;
+  content: string | null;
+  creatorId: string | null;
+  subredditId: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+};
 
 export type PostCountAggregateOutputType = {
-  id: number
-  title: number
-  content: number
-  imageUrl: number
-  creatorId: number
-  subredditId: number
-  createdAt: number
-  updatedAt: number
-  _all: number
-}
+  id: number;
+  title: number;
+  content: number;
+  creatorId: number;
+  subredditId: number;
+  createdAt: number;
+  updatedAt: number;
+  _all: number;
+};
 
 export type PostMinAggregateInputType = {
-  id?: true
-  title?: true
-  content?: true
-  imageUrl?: true
-  creatorId?: true
-  subredditId?: true
-  createdAt?: true
-  updatedAt?: true
-}
+  id?: true;
+  title?: true;
+  content?: true;
+  creatorId?: true;
+  subredditId?: true;
+  createdAt?: true;
+  updatedAt?: true;
+};
 
 export type PostMaxAggregateInputType = {
-  id?: true
-  title?: true
-  content?: true
-  imageUrl?: true
-  creatorId?: true
-  subredditId?: true
-  createdAt?: true
-  updatedAt?: true
-}
+  id?: true;
+  title?: true;
+  content?: true;
+  creatorId?: true;
+  subredditId?: true;
+  createdAt?: true;
+  updatedAt?: true;
+};
 
 export type PostCountAggregateInputType = {
-  id?: true
-  title?: true
-  content?: true
-  imageUrl?: true
-  creatorId?: true
-  subredditId?: true
-  createdAt?: true
-  updatedAt?: true
-  _all?: true
-}
+  id?: true;
+  title?: true;
+  content?: true;
+  creatorId?: true;
+  subredditId?: true;
+  createdAt?: true;
+  updatedAt?: true;
+  _all?: true;
+};
 
 export type PostAggregateArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
@@ -99,7 +93,7 @@ export type PostAggregateArgs<
   /**
    * Filter which Post to aggregate.
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -107,318 +101,305 @@ export type PostAggregateArgs<
    */
   orderBy?:
     | Prisma.PostOrderByWithRelationInput
-    | Prisma.PostOrderByWithRelationInput[]
+    | Prisma.PostOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the start position
    */
-  cursor?: Prisma.PostWhereUniqueInput
+  cursor?: Prisma.PostWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` Posts from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` Posts.
    */
-  skip?: number
+  skip?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    *
    * Count returned Posts
    **/
-  _count?: true | PostCountAggregateInputType
+  _count?: true | PostCountAggregateInputType;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    *
    * Select which fields to find the minimum value
    **/
-  _min?: PostMinAggregateInputType
+  _min?: PostMinAggregateInputType;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    *
    * Select which fields to find the maximum value
    **/
-  _max?: PostMaxAggregateInputType
-}
+  _max?: PostMaxAggregateInputType;
+};
 
 export type GetPostAggregateType<T extends PostAggregateArgs> = {
-  [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
+  [P in keyof T & keyof AggregatePost]: P extends "_count" | "count"
     ? T[P] extends true
       ? number
       : Prisma.GetScalarType<T[P], AggregatePost[P]>
-    : Prisma.GetScalarType<T[P], AggregatePost[P]>
-}
+    : Prisma.GetScalarType<T[P], AggregatePost[P]>;
+};
 
 export type PostGroupByArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   orderBy?:
     | Prisma.PostOrderByWithAggregationInput
-    | Prisma.PostOrderByWithAggregationInput[]
-  by: Prisma.PostScalarFieldEnum[] | Prisma.PostScalarFieldEnum
-  having?: Prisma.PostScalarWhereWithAggregatesInput
-  take?: number
-  skip?: number
-  _count?: PostCountAggregateInputType | true
-  _min?: PostMinAggregateInputType
-  _max?: PostMaxAggregateInputType
-}
+    | Prisma.PostOrderByWithAggregationInput[];
+  by: Prisma.PostScalarFieldEnum[] | Prisma.PostScalarFieldEnum;
+  having?: Prisma.PostScalarWhereWithAggregatesInput;
+  take?: number;
+  skip?: number;
+  _count?: PostCountAggregateInputType | true;
+  _min?: PostMinAggregateInputType;
+  _max?: PostMaxAggregateInputType;
+};
 
 export type PostGroupByOutputType = {
-  id: string
-  title: string
-  content: string | null
-  imageUrl: string | null
-  creatorId: string
-  subredditId: string
-  createdAt: Date
-  updatedAt: Date
-  _count: PostCountAggregateOutputType | null
-  _min: PostMinAggregateOutputType | null
-  _max: PostMaxAggregateOutputType | null
-}
+  id: string;
+  title: string;
+  content: string | null;
+  creatorId: string;
+  subredditId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  _count: PostCountAggregateOutputType | null;
+  _min: PostMinAggregateOutputType | null;
+  _max: PostMaxAggregateOutputType | null;
+};
 
 type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
   Array<
-    Prisma.PickEnumerable<PostGroupByOutputType, T['by']> & {
-      [P in keyof T & keyof PostGroupByOutputType]: P extends '_count'
+    Prisma.PickEnumerable<PostGroupByOutputType, T["by"]> & {
+      [P in keyof T & keyof PostGroupByOutputType]: P extends "_count"
         ? T[P] extends boolean
           ? number
           : Prisma.GetScalarType<T[P], PostGroupByOutputType[P]>
-        : Prisma.GetScalarType<T[P], PostGroupByOutputType[P]>
+        : Prisma.GetScalarType<T[P], PostGroupByOutputType[P]>;
     }
   >
->
+>;
 
 export type PostWhereInput = {
-  AND?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
-  OR?: Prisma.PostWhereInput[]
-  NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
-  id?: Prisma.StringFilter<'Post'> | string
-  title?: Prisma.StringFilter<'Post'> | string
-  content?: Prisma.StringNullableFilter<'Post'> | string | null
-  imageUrl?: Prisma.StringNullableFilter<'Post'> | string | null
-  creatorId?: Prisma.StringFilter<'Post'> | string
-  subredditId?: Prisma.StringFilter<'Post'> | string
-  createdAt?: Prisma.DateTimeFilter<'Post'> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<'Post'> | Date | string
-  creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  AND?: Prisma.PostWhereInput | Prisma.PostWhereInput[];
+  OR?: Prisma.PostWhereInput[];
+  NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[];
+  id?: Prisma.StringFilter<"Post"> | string;
+  title?: Prisma.StringFilter<"Post"> | string;
+  content?: Prisma.StringNullableFilter<"Post"> | string | null;
+  creatorId?: Prisma.StringFilter<"Post"> | string;
+  subredditId?: Prisma.StringFilter<"Post"> | string;
+  createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+  creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
   subreddit?: Prisma.XOR<
     Prisma.SubredditScalarRelationFilter,
     Prisma.SubredditWhereInput
-  >
-  comments?: Prisma.CommentListRelationFilter
-  votes?: Prisma.PostVoteListRelationFilter
-}
+  >;
+  comments?: Prisma.CommentListRelationFilter;
+  votes?: Prisma.PostVoteListRelationFilter;
+};
 
 export type PostOrderByWithRelationInput = {
-  id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  content?: Prisma.SortOrderInput | Prisma.SortOrder
-  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
-  creatorId?: Prisma.SortOrder
-  subredditId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  creator?: Prisma.UserOrderByWithRelationInput
-  subreddit?: Prisma.SubredditOrderByWithRelationInput
-  comments?: Prisma.CommentOrderByRelationAggregateInput
-  votes?: Prisma.PostVoteOrderByRelationAggregateInput
-}
+  id?: Prisma.SortOrder;
+  title?: Prisma.SortOrder;
+  content?: Prisma.SortOrderInput | Prisma.SortOrder;
+  creatorId?: Prisma.SortOrder;
+  subredditId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  creator?: Prisma.UserOrderByWithRelationInput;
+  subreddit?: Prisma.SubredditOrderByWithRelationInput;
+  comments?: Prisma.CommentOrderByRelationAggregateInput;
+  votes?: Prisma.PostVoteOrderByRelationAggregateInput;
+};
 
 export type PostWhereUniqueInput = Prisma.AtLeast<
   {
-    id?: string
-    AND?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
-    OR?: Prisma.PostWhereInput[]
-    NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
-    title?: Prisma.StringFilter<'Post'> | string
-    content?: Prisma.StringNullableFilter<'Post'> | string | null
-    imageUrl?: Prisma.StringNullableFilter<'Post'> | string | null
-    creatorId?: Prisma.StringFilter<'Post'> | string
-    subredditId?: Prisma.StringFilter<'Post'> | string
-    createdAt?: Prisma.DateTimeFilter<'Post'> | Date | string
-    updatedAt?: Prisma.DateTimeFilter<'Post'> | Date | string
-    creator?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+    id?: string;
+    AND?: Prisma.PostWhereInput | Prisma.PostWhereInput[];
+    OR?: Prisma.PostWhereInput[];
+    NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[];
+    title?: Prisma.StringFilter<"Post"> | string;
+    content?: Prisma.StringNullableFilter<"Post"> | string | null;
+    creatorId?: Prisma.StringFilter<"Post"> | string;
+    subredditId?: Prisma.StringFilter<"Post"> | string;
+    createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+    creator?: Prisma.XOR<
+      Prisma.UserScalarRelationFilter,
+      Prisma.UserWhereInput
+    >;
     subreddit?: Prisma.XOR<
       Prisma.SubredditScalarRelationFilter,
       Prisma.SubredditWhereInput
-    >
-    comments?: Prisma.CommentListRelationFilter
-    votes?: Prisma.PostVoteListRelationFilter
+    >;
+    comments?: Prisma.CommentListRelationFilter;
+    votes?: Prisma.PostVoteListRelationFilter;
   },
-  'id'
->
+  "id"
+>;
 
 export type PostOrderByWithAggregationInput = {
-  id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  content?: Prisma.SortOrderInput | Prisma.SortOrder
-  imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
-  creatorId?: Prisma.SortOrder
-  subredditId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  _count?: Prisma.PostCountOrderByAggregateInput
-  _max?: Prisma.PostMaxOrderByAggregateInput
-  _min?: Prisma.PostMinOrderByAggregateInput
-}
+  id?: Prisma.SortOrder;
+  title?: Prisma.SortOrder;
+  content?: Prisma.SortOrderInput | Prisma.SortOrder;
+  creatorId?: Prisma.SortOrder;
+  subredditId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  _count?: Prisma.PostCountOrderByAggregateInput;
+  _max?: Prisma.PostMaxOrderByAggregateInput;
+  _min?: Prisma.PostMinOrderByAggregateInput;
+};
 
 export type PostScalarWhereWithAggregatesInput = {
   AND?:
     | Prisma.PostScalarWhereWithAggregatesInput
-    | Prisma.PostScalarWhereWithAggregatesInput[]
-  OR?: Prisma.PostScalarWhereWithAggregatesInput[]
+    | Prisma.PostScalarWhereWithAggregatesInput[];
+  OR?: Prisma.PostScalarWhereWithAggregatesInput[];
   NOT?:
     | Prisma.PostScalarWhereWithAggregatesInput
-    | Prisma.PostScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<'Post'> | string
-  title?: Prisma.StringWithAggregatesFilter<'Post'> | string
-  content?: Prisma.StringNullableWithAggregatesFilter<'Post'> | string | null
-  imageUrl?: Prisma.StringNullableWithAggregatesFilter<'Post'> | string | null
-  creatorId?: Prisma.StringWithAggregatesFilter<'Post'> | string
-  subredditId?: Prisma.StringWithAggregatesFilter<'Post'> | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<'Post'> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<'Post'> | Date | string
-}
+    | Prisma.PostScalarWhereWithAggregatesInput[];
+  id?: Prisma.StringWithAggregatesFilter<"Post"> | string;
+  title?: Prisma.StringWithAggregatesFilter<"Post"> | string;
+  content?: Prisma.StringNullableWithAggregatesFilter<"Post"> | string | null;
+  creatorId?: Prisma.StringWithAggregatesFilter<"Post"> | string;
+  subredditId?: Prisma.StringWithAggregatesFilter<"Post"> | string;
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string;
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string;
+};
 
 export type PostCreateInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  creator: Prisma.UserCreateNestedOneWithoutPostsInput
-  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
-  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  creator: Prisma.UserCreateNestedOneWithoutPostsInput;
+  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput;
+  comments?: Prisma.CommentCreateNestedManyWithoutPostInput;
+  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput;
+};
 
 export type PostUncheckedCreateInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  creatorId: string
-  subredditId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
-  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  creatorId: string;
+  subredditId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
+  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput;
+};
 
 export type PostUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
-  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
-  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
+  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput;
+  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput;
+  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
-  subredditId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
-  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
+  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput;
+};
 
 export type PostCreateManyInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  creatorId: string
-  subredditId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  creatorId: string;
+  subredditId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+};
 
 export type PostUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type PostUncheckedUpdateManyInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
-  subredditId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type PostListRelationFilter = {
-  every?: Prisma.PostWhereInput
-  some?: Prisma.PostWhereInput
-  none?: Prisma.PostWhereInput
-}
+  every?: Prisma.PostWhereInput;
+  some?: Prisma.PostWhereInput;
+  none?: Prisma.PostWhereInput;
+};
 
 export type PostOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
-}
+  _count?: Prisma.SortOrder;
+};
 
 export type PostCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  content?: Prisma.SortOrder
-  imageUrl?: Prisma.SortOrder
-  creatorId?: Prisma.SortOrder
-  subredditId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-}
+  id?: Prisma.SortOrder;
+  title?: Prisma.SortOrder;
+  content?: Prisma.SortOrder;
+  creatorId?: Prisma.SortOrder;
+  subredditId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+};
 
 export type PostMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  content?: Prisma.SortOrder
-  imageUrl?: Prisma.SortOrder
-  creatorId?: Prisma.SortOrder
-  subredditId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-}
+  id?: Prisma.SortOrder;
+  title?: Prisma.SortOrder;
+  content?: Prisma.SortOrder;
+  creatorId?: Prisma.SortOrder;
+  subredditId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+};
 
 export type PostMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  content?: Prisma.SortOrder
-  imageUrl?: Prisma.SortOrder
-  creatorId?: Prisma.SortOrder
-  subredditId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-}
+  id?: Prisma.SortOrder;
+  title?: Prisma.SortOrder;
+  content?: Prisma.SortOrder;
+  creatorId?: Prisma.SortOrder;
+  subredditId?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+};
 
 export type PostScalarRelationFilter = {
-  is?: Prisma.PostWhereInput
-  isNot?: Prisma.PostWhereInput
-}
+  is?: Prisma.PostWhereInput;
+  isNot?: Prisma.PostWhereInput;
+};
 
 export type PostCreateNestedManyWithoutCreatorInput = {
   create?:
@@ -427,13 +408,13 @@ export type PostCreateNestedManyWithoutCreatorInput = {
         Prisma.PostUncheckedCreateWithoutCreatorInput
       >
     | Prisma.PostCreateWithoutCreatorInput[]
-    | Prisma.PostUncheckedCreateWithoutCreatorInput[]
+    | Prisma.PostUncheckedCreateWithoutCreatorInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutCreatorInput
-    | Prisma.PostCreateOrConnectWithoutCreatorInput[]
-  createMany?: Prisma.PostCreateManyCreatorInputEnvelope
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-}
+    | Prisma.PostCreateOrConnectWithoutCreatorInput[];
+  createMany?: Prisma.PostCreateManyCreatorInputEnvelope;
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+};
 
 export type PostUncheckedCreateNestedManyWithoutCreatorInput = {
   create?:
@@ -442,13 +423,13 @@ export type PostUncheckedCreateNestedManyWithoutCreatorInput = {
         Prisma.PostUncheckedCreateWithoutCreatorInput
       >
     | Prisma.PostCreateWithoutCreatorInput[]
-    | Prisma.PostUncheckedCreateWithoutCreatorInput[]
+    | Prisma.PostUncheckedCreateWithoutCreatorInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutCreatorInput
-    | Prisma.PostCreateOrConnectWithoutCreatorInput[]
-  createMany?: Prisma.PostCreateManyCreatorInputEnvelope
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-}
+    | Prisma.PostCreateOrConnectWithoutCreatorInput[];
+  createMany?: Prisma.PostCreateManyCreatorInputEnvelope;
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+};
 
 export type PostUpdateManyWithoutCreatorNestedInput = {
   create?:
@@ -457,26 +438,26 @@ export type PostUpdateManyWithoutCreatorNestedInput = {
         Prisma.PostUncheckedCreateWithoutCreatorInput
       >
     | Prisma.PostCreateWithoutCreatorInput[]
-    | Prisma.PostUncheckedCreateWithoutCreatorInput[]
+    | Prisma.PostUncheckedCreateWithoutCreatorInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutCreatorInput
-    | Prisma.PostCreateOrConnectWithoutCreatorInput[]
+    | Prisma.PostCreateOrConnectWithoutCreatorInput[];
   upsert?:
     | Prisma.PostUpsertWithWhereUniqueWithoutCreatorInput
-    | Prisma.PostUpsertWithWhereUniqueWithoutCreatorInput[]
-  createMany?: Prisma.PostCreateManyCreatorInputEnvelope
-  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
+    | Prisma.PostUpsertWithWhereUniqueWithoutCreatorInput[];
+  createMany?: Prisma.PostCreateManyCreatorInputEnvelope;
+  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
   update?:
     | Prisma.PostUpdateWithWhereUniqueWithoutCreatorInput
-    | Prisma.PostUpdateWithWhereUniqueWithoutCreatorInput[]
+    | Prisma.PostUpdateWithWhereUniqueWithoutCreatorInput[];
   updateMany?:
     | Prisma.PostUpdateManyWithWhereWithoutCreatorInput
-    | Prisma.PostUpdateManyWithWhereWithoutCreatorInput[]
-  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-}
+    | Prisma.PostUpdateManyWithWhereWithoutCreatorInput[];
+  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[];
+};
 
 export type PostUncheckedUpdateManyWithoutCreatorNestedInput = {
   create?:
@@ -485,26 +466,26 @@ export type PostUncheckedUpdateManyWithoutCreatorNestedInput = {
         Prisma.PostUncheckedCreateWithoutCreatorInput
       >
     | Prisma.PostCreateWithoutCreatorInput[]
-    | Prisma.PostUncheckedCreateWithoutCreatorInput[]
+    | Prisma.PostUncheckedCreateWithoutCreatorInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutCreatorInput
-    | Prisma.PostCreateOrConnectWithoutCreatorInput[]
+    | Prisma.PostCreateOrConnectWithoutCreatorInput[];
   upsert?:
     | Prisma.PostUpsertWithWhereUniqueWithoutCreatorInput
-    | Prisma.PostUpsertWithWhereUniqueWithoutCreatorInput[]
-  createMany?: Prisma.PostCreateManyCreatorInputEnvelope
-  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
+    | Prisma.PostUpsertWithWhereUniqueWithoutCreatorInput[];
+  createMany?: Prisma.PostCreateManyCreatorInputEnvelope;
+  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
   update?:
     | Prisma.PostUpdateWithWhereUniqueWithoutCreatorInput
-    | Prisma.PostUpdateWithWhereUniqueWithoutCreatorInput[]
+    | Prisma.PostUpdateWithWhereUniqueWithoutCreatorInput[];
   updateMany?:
     | Prisma.PostUpdateManyWithWhereWithoutCreatorInput
-    | Prisma.PostUpdateManyWithWhereWithoutCreatorInput[]
-  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-}
+    | Prisma.PostUpdateManyWithWhereWithoutCreatorInput[];
+  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[];
+};
 
 export type PostCreateNestedManyWithoutSubredditInput = {
   create?:
@@ -513,13 +494,13 @@ export type PostCreateNestedManyWithoutSubredditInput = {
         Prisma.PostUncheckedCreateWithoutSubredditInput
       >
     | Prisma.PostCreateWithoutSubredditInput[]
-    | Prisma.PostUncheckedCreateWithoutSubredditInput[]
+    | Prisma.PostUncheckedCreateWithoutSubredditInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutSubredditInput
-    | Prisma.PostCreateOrConnectWithoutSubredditInput[]
-  createMany?: Prisma.PostCreateManySubredditInputEnvelope
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-}
+    | Prisma.PostCreateOrConnectWithoutSubredditInput[];
+  createMany?: Prisma.PostCreateManySubredditInputEnvelope;
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+};
 
 export type PostUncheckedCreateNestedManyWithoutSubredditInput = {
   create?:
@@ -528,13 +509,13 @@ export type PostUncheckedCreateNestedManyWithoutSubredditInput = {
         Prisma.PostUncheckedCreateWithoutSubredditInput
       >
     | Prisma.PostCreateWithoutSubredditInput[]
-    | Prisma.PostUncheckedCreateWithoutSubredditInput[]
+    | Prisma.PostUncheckedCreateWithoutSubredditInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutSubredditInput
-    | Prisma.PostCreateOrConnectWithoutSubredditInput[]
-  createMany?: Prisma.PostCreateManySubredditInputEnvelope
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-}
+    | Prisma.PostCreateOrConnectWithoutSubredditInput[];
+  createMany?: Prisma.PostCreateManySubredditInputEnvelope;
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+};
 
 export type PostUpdateManyWithoutSubredditNestedInput = {
   create?:
@@ -543,26 +524,26 @@ export type PostUpdateManyWithoutSubredditNestedInput = {
         Prisma.PostUncheckedCreateWithoutSubredditInput
       >
     | Prisma.PostCreateWithoutSubredditInput[]
-    | Prisma.PostUncheckedCreateWithoutSubredditInput[]
+    | Prisma.PostUncheckedCreateWithoutSubredditInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutSubredditInput
-    | Prisma.PostCreateOrConnectWithoutSubredditInput[]
+    | Prisma.PostCreateOrConnectWithoutSubredditInput[];
   upsert?:
     | Prisma.PostUpsertWithWhereUniqueWithoutSubredditInput
-    | Prisma.PostUpsertWithWhereUniqueWithoutSubredditInput[]
-  createMany?: Prisma.PostCreateManySubredditInputEnvelope
-  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
+    | Prisma.PostUpsertWithWhereUniqueWithoutSubredditInput[];
+  createMany?: Prisma.PostCreateManySubredditInputEnvelope;
+  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
   update?:
     | Prisma.PostUpdateWithWhereUniqueWithoutSubredditInput
-    | Prisma.PostUpdateWithWhereUniqueWithoutSubredditInput[]
+    | Prisma.PostUpdateWithWhereUniqueWithoutSubredditInput[];
   updateMany?:
     | Prisma.PostUpdateManyWithWhereWithoutSubredditInput
-    | Prisma.PostUpdateManyWithWhereWithoutSubredditInput[]
-  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-}
+    | Prisma.PostUpdateManyWithWhereWithoutSubredditInput[];
+  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[];
+};
 
 export type PostUncheckedUpdateManyWithoutSubredditNestedInput = {
   create?:
@@ -571,481 +552,460 @@ export type PostUncheckedUpdateManyWithoutSubredditNestedInput = {
         Prisma.PostUncheckedCreateWithoutSubredditInput
       >
     | Prisma.PostCreateWithoutSubredditInput[]
-    | Prisma.PostUncheckedCreateWithoutSubredditInput[]
+    | Prisma.PostUncheckedCreateWithoutSubredditInput[];
   connectOrCreate?:
     | Prisma.PostCreateOrConnectWithoutSubredditInput
-    | Prisma.PostCreateOrConnectWithoutSubredditInput[]
+    | Prisma.PostCreateOrConnectWithoutSubredditInput[];
   upsert?:
     | Prisma.PostUpsertWithWhereUniqueWithoutSubredditInput
-    | Prisma.PostUpsertWithWhereUniqueWithoutSubredditInput[]
-  createMany?: Prisma.PostCreateManySubredditInputEnvelope
-  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
-  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[]
+    | Prisma.PostUpsertWithWhereUniqueWithoutSubredditInput[];
+  createMany?: Prisma.PostCreateManySubredditInputEnvelope;
+  set?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  disconnect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  delete?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
+  connect?: Prisma.PostWhereUniqueInput | Prisma.PostWhereUniqueInput[];
   update?:
     | Prisma.PostUpdateWithWhereUniqueWithoutSubredditInput
-    | Prisma.PostUpdateWithWhereUniqueWithoutSubredditInput[]
+    | Prisma.PostUpdateWithWhereUniqueWithoutSubredditInput[];
   updateMany?:
     | Prisma.PostUpdateManyWithWhereWithoutSubredditInput
-    | Prisma.PostUpdateManyWithWhereWithoutSubredditInput[]
-  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-}
+    | Prisma.PostUpdateManyWithWhereWithoutSubredditInput[];
+  deleteMany?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[];
+};
 
 export type PostCreateNestedOneWithoutCommentsInput = {
   create?: Prisma.XOR<
     Prisma.PostCreateWithoutCommentsInput,
     Prisma.PostUncheckedCreateWithoutCommentsInput
-  >
-  connectOrCreate?: Prisma.PostCreateOrConnectWithoutCommentsInput
-  connect?: Prisma.PostWhereUniqueInput
-}
+  >;
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutCommentsInput;
+  connect?: Prisma.PostWhereUniqueInput;
+};
 
 export type PostUpdateOneRequiredWithoutCommentsNestedInput = {
   create?: Prisma.XOR<
     Prisma.PostCreateWithoutCommentsInput,
     Prisma.PostUncheckedCreateWithoutCommentsInput
-  >
-  connectOrCreate?: Prisma.PostCreateOrConnectWithoutCommentsInput
-  upsert?: Prisma.PostUpsertWithoutCommentsInput
-  connect?: Prisma.PostWhereUniqueInput
+  >;
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutCommentsInput;
+  upsert?: Prisma.PostUpsertWithoutCommentsInput;
+  connect?: Prisma.PostWhereUniqueInput;
   update?: Prisma.XOR<
     Prisma.XOR<
       Prisma.PostUpdateToOneWithWhereWithoutCommentsInput,
       Prisma.PostUpdateWithoutCommentsInput
     >,
     Prisma.PostUncheckedUpdateWithoutCommentsInput
-  >
-}
+  >;
+};
 
 export type PostCreateNestedOneWithoutVotesInput = {
   create?: Prisma.XOR<
     Prisma.PostCreateWithoutVotesInput,
     Prisma.PostUncheckedCreateWithoutVotesInput
-  >
-  connectOrCreate?: Prisma.PostCreateOrConnectWithoutVotesInput
-  connect?: Prisma.PostWhereUniqueInput
-}
+  >;
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutVotesInput;
+  connect?: Prisma.PostWhereUniqueInput;
+};
 
 export type PostUpdateOneRequiredWithoutVotesNestedInput = {
   create?: Prisma.XOR<
     Prisma.PostCreateWithoutVotesInput,
     Prisma.PostUncheckedCreateWithoutVotesInput
-  >
-  connectOrCreate?: Prisma.PostCreateOrConnectWithoutVotesInput
-  upsert?: Prisma.PostUpsertWithoutVotesInput
-  connect?: Prisma.PostWhereUniqueInput
+  >;
+  connectOrCreate?: Prisma.PostCreateOrConnectWithoutVotesInput;
+  upsert?: Prisma.PostUpsertWithoutVotesInput;
+  connect?: Prisma.PostWhereUniqueInput;
   update?: Prisma.XOR<
     Prisma.XOR<
       Prisma.PostUpdateToOneWithWhereWithoutVotesInput,
       Prisma.PostUpdateWithoutVotesInput
     >,
     Prisma.PostUncheckedUpdateWithoutVotesInput
-  >
-}
+  >;
+};
 
 export type PostCreateWithoutCreatorInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
-  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput;
+  comments?: Prisma.CommentCreateNestedManyWithoutPostInput;
+  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput;
+};
 
 export type PostUncheckedCreateWithoutCreatorInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  subredditId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
-  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  subredditId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
+  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput;
+};
 
 export type PostCreateOrConnectWithoutCreatorInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutCreatorInput,
     Prisma.PostUncheckedCreateWithoutCreatorInput
-  >
-}
+  >;
+};
 
 export type PostCreateManyCreatorInputEnvelope = {
-  data: Prisma.PostCreateManyCreatorInput | Prisma.PostCreateManyCreatorInput[]
-  skipDuplicates?: boolean
-}
+  data: Prisma.PostCreateManyCreatorInput | Prisma.PostCreateManyCreatorInput[];
+  skipDuplicates?: boolean;
+};
 
 export type PostUpsertWithWhereUniqueWithoutCreatorInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   update: Prisma.XOR<
     Prisma.PostUpdateWithoutCreatorInput,
     Prisma.PostUncheckedUpdateWithoutCreatorInput
-  >
+  >;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutCreatorInput,
     Prisma.PostUncheckedCreateWithoutCreatorInput
-  >
-}
+  >;
+};
 
 export type PostUpdateWithWhereUniqueWithoutCreatorInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   data: Prisma.XOR<
     Prisma.PostUpdateWithoutCreatorInput,
     Prisma.PostUncheckedUpdateWithoutCreatorInput
-  >
-}
+  >;
+};
 
 export type PostUpdateManyWithWhereWithoutCreatorInput = {
-  where: Prisma.PostScalarWhereInput
+  where: Prisma.PostScalarWhereInput;
   data: Prisma.XOR<
     Prisma.PostUpdateManyMutationInput,
     Prisma.PostUncheckedUpdateManyWithoutCreatorInput
-  >
-}
+  >;
+};
 
 export type PostScalarWhereInput = {
-  AND?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-  OR?: Prisma.PostScalarWhereInput[]
-  NOT?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-  id?: Prisma.StringFilter<'Post'> | string
-  title?: Prisma.StringFilter<'Post'> | string
-  content?: Prisma.StringNullableFilter<'Post'> | string | null
-  imageUrl?: Prisma.StringNullableFilter<'Post'> | string | null
-  creatorId?: Prisma.StringFilter<'Post'> | string
-  subredditId?: Prisma.StringFilter<'Post'> | string
-  createdAt?: Prisma.DateTimeFilter<'Post'> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<'Post'> | Date | string
-}
+  AND?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[];
+  OR?: Prisma.PostScalarWhereInput[];
+  NOT?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[];
+  id?: Prisma.StringFilter<"Post"> | string;
+  title?: Prisma.StringFilter<"Post"> | string;
+  content?: Prisma.StringNullableFilter<"Post"> | string | null;
+  creatorId?: Prisma.StringFilter<"Post"> | string;
+  subredditId?: Prisma.StringFilter<"Post"> | string;
+  createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+};
 
 export type PostCreateWithoutSubredditInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  creator: Prisma.UserCreateNestedOneWithoutPostsInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
-  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  creator: Prisma.UserCreateNestedOneWithoutPostsInput;
+  comments?: Prisma.CommentCreateNestedManyWithoutPostInput;
+  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput;
+};
 
 export type PostUncheckedCreateWithoutSubredditInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  creatorId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
-  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  creatorId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
+  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput;
+};
 
 export type PostCreateOrConnectWithoutSubredditInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutSubredditInput,
     Prisma.PostUncheckedCreateWithoutSubredditInput
-  >
-}
+  >;
+};
 
 export type PostCreateManySubredditInputEnvelope = {
   data:
     | Prisma.PostCreateManySubredditInput
-    | Prisma.PostCreateManySubredditInput[]
-  skipDuplicates?: boolean
-}
+    | Prisma.PostCreateManySubredditInput[];
+  skipDuplicates?: boolean;
+};
 
 export type PostUpsertWithWhereUniqueWithoutSubredditInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   update: Prisma.XOR<
     Prisma.PostUpdateWithoutSubredditInput,
     Prisma.PostUncheckedUpdateWithoutSubredditInput
-  >
+  >;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutSubredditInput,
     Prisma.PostUncheckedCreateWithoutSubredditInput
-  >
-}
+  >;
+};
 
 export type PostUpdateWithWhereUniqueWithoutSubredditInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   data: Prisma.XOR<
     Prisma.PostUpdateWithoutSubredditInput,
     Prisma.PostUncheckedUpdateWithoutSubredditInput
-  >
-}
+  >;
+};
 
 export type PostUpdateManyWithWhereWithoutSubredditInput = {
-  where: Prisma.PostScalarWhereInput
+  where: Prisma.PostScalarWhereInput;
   data: Prisma.XOR<
     Prisma.PostUpdateManyMutationInput,
     Prisma.PostUncheckedUpdateManyWithoutSubredditInput
-  >
-}
+  >;
+};
 
 export type PostCreateWithoutCommentsInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  creator: Prisma.UserCreateNestedOneWithoutPostsInput
-  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput
-  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  creator: Prisma.UserCreateNestedOneWithoutPostsInput;
+  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput;
+  votes?: Prisma.PostVoteCreateNestedManyWithoutPostInput;
+};
 
 export type PostUncheckedCreateWithoutCommentsInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  creatorId: string
-  subredditId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  creatorId: string;
+  subredditId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  votes?: Prisma.PostVoteUncheckedCreateNestedManyWithoutPostInput;
+};
 
 export type PostCreateOrConnectWithoutCommentsInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutCommentsInput,
     Prisma.PostUncheckedCreateWithoutCommentsInput
-  >
-}
+  >;
+};
 
 export type PostUpsertWithoutCommentsInput = {
   update: Prisma.XOR<
     Prisma.PostUpdateWithoutCommentsInput,
     Prisma.PostUncheckedUpdateWithoutCommentsInput
-  >
+  >;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutCommentsInput,
     Prisma.PostUncheckedCreateWithoutCommentsInput
-  >
-  where?: Prisma.PostWhereInput
-}
+  >;
+  where?: Prisma.PostWhereInput;
+};
 
 export type PostUpdateToOneWithWhereWithoutCommentsInput = {
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   data: Prisma.XOR<
     Prisma.PostUpdateWithoutCommentsInput,
     Prisma.PostUncheckedUpdateWithoutCommentsInput
-  >
-}
+  >;
+};
 
 export type PostUpdateWithoutCommentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
-  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput
-  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
+  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput;
+  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateWithoutCommentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
-  subredditId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput;
+};
 
 export type PostCreateWithoutVotesInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  creator: Prisma.UserCreateNestedOneWithoutPostsInput
-  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput
-  comments?: Prisma.CommentCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  creator: Prisma.UserCreateNestedOneWithoutPostsInput;
+  subreddit: Prisma.SubredditCreateNestedOneWithoutPostsInput;
+  comments?: Prisma.CommentCreateNestedManyWithoutPostInput;
+};
 
 export type PostUncheckedCreateWithoutVotesInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  creatorId: string
-  subredditId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  creatorId: string;
+  subredditId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
+};
 
 export type PostCreateOrConnectWithoutVotesInput = {
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutVotesInput,
     Prisma.PostUncheckedCreateWithoutVotesInput
-  >
-}
+  >;
+};
 
 export type PostUpsertWithoutVotesInput = {
   update: Prisma.XOR<
     Prisma.PostUpdateWithoutVotesInput,
     Prisma.PostUncheckedUpdateWithoutVotesInput
-  >
+  >;
   create: Prisma.XOR<
     Prisma.PostCreateWithoutVotesInput,
     Prisma.PostUncheckedCreateWithoutVotesInput
-  >
-  where?: Prisma.PostWhereInput
-}
+  >;
+  where?: Prisma.PostWhereInput;
+};
 
 export type PostUpdateToOneWithWhereWithoutVotesInput = {
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   data: Prisma.XOR<
     Prisma.PostUpdateWithoutVotesInput,
     Prisma.PostUncheckedUpdateWithoutVotesInput
-  >
-}
+  >;
+};
 
 export type PostUpdateWithoutVotesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
-  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
+  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput;
+  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateWithoutVotesInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
-  subredditId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
+};
 
 export type PostCreateManyCreatorInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  subredditId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  subredditId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+};
 
 export type PostUpdateWithoutCreatorInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
-  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  subreddit?: Prisma.SubredditUpdateOneRequiredWithoutPostsNestedInput;
+  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput;
+  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateWithoutCreatorInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subredditId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
-  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
+  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateManyWithoutCreatorInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subredditId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  subredditId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type PostCreateManySubredditInput = {
-  id?: string
-  title: string
-  content?: string | null
-  imageUrl?: string | null
-  creatorId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
+  id?: string;
+  title: string;
+  content?: string | null;
+  creatorId: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+};
 
 export type PostUpdateWithoutSubredditInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
-  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput
-  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  creator?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
+  comments?: Prisma.CommentUpdateManyWithoutPostNestedInput;
+  votes?: Prisma.PostVoteUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateWithoutSubredditInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput
-  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
+  votes?: Prisma.PostVoteUncheckedUpdateManyWithoutPostNestedInput;
+};
 
 export type PostUncheckedUpdateManyWithoutSubredditInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  creatorId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+  id?: Prisma.StringFieldUpdateOperationsInput | string;
+  title?: Prisma.StringFieldUpdateOperationsInput | string;
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  creatorId?: Prisma.StringFieldUpdateOperationsInput | string;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 /**
  * Count Type PostCountOutputType
  */
 
 export type PostCountOutputType = {
-  comments: number
-  votes: number
-}
+  comments: number;
+  votes: number;
+};
 
 export type PostCountOutputTypeSelect<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  comments?: boolean | PostCountOutputTypeCountCommentsArgs
-  votes?: boolean | PostCountOutputTypeCountVotesArgs
-}
+  comments?: boolean | PostCountOutputTypeCountCommentsArgs;
+  votes?: boolean | PostCountOutputTypeCountVotesArgs;
+};
 
 /**
  * PostCountOutputType without action
@@ -1057,8 +1017,8 @@ export type PostCountOutputTypeDefaultArgs<
   /**
    * Select specific fields to fetch from the PostCountOutputType
    */
-  select?: Prisma.PostCountOutputTypeSelect<ExtArgs> | null
-}
+  select?: Prisma.PostCountOutputTypeSelect<ExtArgs> | null;
+};
 
 /**
  * PostCountOutputType without action
@@ -1067,8 +1027,8 @@ export type PostCountOutputTypeCountCommentsArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  where?: Prisma.CommentWhereInput
-}
+  where?: Prisma.CommentWhereInput;
+};
 
 /**
  * PostCountOutputType without action
@@ -1077,156 +1037,150 @@ export type PostCountOutputTypeCountVotesArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  where?: Prisma.PostVoteWhereInput
-}
+  where?: Prisma.PostVoteWhereInput;
+};
 
 export type PostSelect<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
   {
-    id?: boolean
-    title?: boolean
-    content?: boolean
-    imageUrl?: boolean
-    creatorId?: boolean
-    subredditId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-    subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>
-    comments?: boolean | Prisma.Post$commentsArgs<ExtArgs>
-    votes?: boolean | Prisma.Post$votesArgs<ExtArgs>
-    _count?: boolean | Prisma.PostCountOutputTypeDefaultArgs<ExtArgs>
+    id?: boolean;
+    title?: boolean;
+    content?: boolean;
+    creatorId?: boolean;
+    subredditId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
+    comments?: boolean | Prisma.Post$commentsArgs<ExtArgs>;
+    votes?: boolean | Prisma.Post$votesArgs<ExtArgs>;
+    _count?: boolean | Prisma.PostCountOutputTypeDefaultArgs<ExtArgs>;
   },
-  ExtArgs['result']['post']
->
+  ExtArgs["result"]["post"]
+>;
 
 export type PostSelectCreateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
   {
-    id?: boolean
-    title?: boolean
-    content?: boolean
-    imageUrl?: boolean
-    creatorId?: boolean
-    subredditId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-    subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>
+    id?: boolean;
+    title?: boolean;
+    content?: boolean;
+    creatorId?: boolean;
+    subredditId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
   },
-  ExtArgs['result']['post']
->
+  ExtArgs["result"]["post"]
+>;
 
 export type PostSelectUpdateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
   {
-    id?: boolean
-    title?: boolean
-    content?: boolean
-    imageUrl?: boolean
-    creatorId?: boolean
-    subredditId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-    subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>
+    id?: boolean;
+    title?: boolean;
+    content?: boolean;
+    creatorId?: boolean;
+    subredditId?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
   },
-  ExtArgs['result']['post']
->
+  ExtArgs["result"]["post"]
+>;
 
 export type PostSelectScalar = {
-  id?: boolean
-  title?: boolean
-  content?: boolean
-  imageUrl?: boolean
-  creatorId?: boolean
-  subredditId?: boolean
-  createdAt?: boolean
-  updatedAt?: boolean
-}
+  id?: boolean;
+  title?: boolean;
+  content?: boolean;
+  creatorId?: boolean;
+  subredditId?: boolean;
+  createdAt?: boolean;
+  updatedAt?: boolean;
+};
 
 export type PostOmit<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetOmit<
-  | 'id'
-  | 'title'
-  | 'content'
-  | 'imageUrl'
-  | 'creatorId'
-  | 'subredditId'
-  | 'createdAt'
-  | 'updatedAt',
-  ExtArgs['result']['post']
->
+  | "id"
+  | "title"
+  | "content"
+  | "creatorId"
+  | "subredditId"
+  | "createdAt"
+  | "updatedAt",
+  ExtArgs["result"]["post"]
+>;
 export type PostInclude<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>
-  comments?: boolean | Prisma.Post$commentsArgs<ExtArgs>
-  votes?: boolean | Prisma.Post$votesArgs<ExtArgs>
-  _count?: boolean | Prisma.PostCountOutputTypeDefaultArgs<ExtArgs>
-}
+  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+  subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
+  comments?: boolean | Prisma.Post$commentsArgs<ExtArgs>;
+  votes?: boolean | Prisma.Post$votesArgs<ExtArgs>;
+  _count?: boolean | Prisma.PostCountOutputTypeDefaultArgs<ExtArgs>;
+};
 export type PostIncludeCreateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>
-}
+  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+  subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
+};
 export type PostIncludeUpdateManyAndReturn<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>
-}
+  creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+  subreddit?: boolean | Prisma.SubredditDefaultArgs<ExtArgs>;
+};
 
 export type $PostPayload<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
-  name: 'Post'
+  name: "Post";
   objects: {
-    creator: Prisma.$UserPayload<ExtArgs>
-    subreddit: Prisma.$SubredditPayload<ExtArgs>
-    comments: Prisma.$CommentPayload<ExtArgs>[]
-    votes: Prisma.$PostVotePayload<ExtArgs>[]
-  }
+    creator: Prisma.$UserPayload<ExtArgs>;
+    subreddit: Prisma.$SubredditPayload<ExtArgs>;
+    comments: Prisma.$CommentPayload<ExtArgs>[];
+    votes: Prisma.$PostVotePayload<ExtArgs>[];
+  };
   scalars: runtime.Types.Extensions.GetPayloadResult<
     {
-      id: string
-      title: string
-      content: string | null
-      imageUrl: string | null
-      creatorId: string
-      subredditId: string
-      createdAt: Date
-      updatedAt: Date
+      id: string;
+      title: string;
+      content: string | null;
+      creatorId: string;
+      subredditId: string;
+      createdAt: Date;
+      updatedAt: Date;
     },
-    ExtArgs['result']['post']
-  >
-  composites: {}
-}
+    ExtArgs["result"]["post"]
+  >;
+  composites: {};
+};
 
 export type PostGetPayload<
   S extends boolean | null | undefined | PostDefaultArgs,
-> = runtime.Types.Result.GetResult<Prisma.$PostPayload, S>
+> = runtime.Types.Result.GetResult<Prisma.$PostPayload, S>;
 
 export type PostCountArgs<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
-> = Omit<PostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-  select?: PostCountAggregateInputType | true
-}
+> = Omit<PostFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+  select?: PostCountAggregateInputType | true;
+};
 
 export interface PostDelegate<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
@@ -1234,9 +1188,9 @@ export interface PostDelegate<
   GlobalOmitOptions = {},
 > {
   [K: symbol]: {
-    types: Prisma.TypeMap<ExtArgs>['model']['Post']
-    meta: { name: 'Post' }
-  }
+    types: Prisma.TypeMap<ExtArgs>["model"]["Post"];
+    meta: { name: "Post" };
+  };
   /**
    * Find zero or one Post that matches the filter.
    * @param {PostFindUniqueArgs} args - Arguments to find a Post
@@ -1254,13 +1208,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'findUnique',
+      "findUnique",
       GlobalOmitOptions
     > | null,
     null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find one Post that matches the filter or throw an error with `error.code='P2025'`
@@ -1280,13 +1234,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'findUniqueOrThrow',
+      "findUniqueOrThrow",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find the first Post that matches the filter.
@@ -1307,13 +1261,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'findFirst',
+      "findFirst",
       GlobalOmitOptions
     > | null,
     null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find the first Post that matches the filter or
@@ -1335,13 +1289,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'findFirstOrThrow',
+      "findFirstOrThrow",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Find zero or more Posts that matches the filter.
@@ -1365,10 +1319,10 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'findMany',
+      "findMany",
       GlobalOmitOptions
     >
-  >
+  >;
 
   /**
    * Create a Post.
@@ -1388,13 +1342,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'create',
+      "create",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Create many Posts.
@@ -1410,7 +1364,7 @@ export interface PostDelegate<
    */
   createMany<T extends PostCreateManyArgs>(
     args?: Prisma.SelectSubset<T, PostCreateManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+  ): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
   /**
    * Create many Posts and returns the data saved in the database.
@@ -1440,10 +1394,10 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'createManyAndReturn',
+      "createManyAndReturn",
       GlobalOmitOptions
     >
-  >
+  >;
 
   /**
    * Delete a Post.
@@ -1463,13 +1417,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'delete',
+      "delete",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Update one Post.
@@ -1492,13 +1446,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'update',
+      "update",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Delete zero or more Posts.
@@ -1514,7 +1468,7 @@ export interface PostDelegate<
    */
   deleteMany<T extends PostDeleteManyArgs>(
     args?: Prisma.SelectSubset<T, PostDeleteManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+  ): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
   /**
    * Update zero or more Posts.
@@ -1535,7 +1489,7 @@ export interface PostDelegate<
    */
   updateMany<T extends PostUpdateManyArgs>(
     args: Prisma.SelectSubset<T, PostUpdateManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+  ): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
   /**
    * Update zero or more Posts and returns the data updated in the database.
@@ -1571,10 +1525,10 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'updateManyAndReturn',
+      "updateManyAndReturn",
       GlobalOmitOptions
     >
-  >
+  >;
 
   /**
    * Create or update one Post.
@@ -1599,13 +1553,13 @@ export interface PostDelegate<
     runtime.Types.Result.GetResult<
       Prisma.$PostPayload<ExtArgs>,
       T,
-      'upsert',
+      "upsert",
       GlobalOmitOptions
     >,
     never,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
 
   /**
    * Count the number of Posts.
@@ -1623,12 +1577,12 @@ export interface PostDelegate<
   count<T extends PostCountArgs>(
     args?: Prisma.Subset<T, PostCountArgs>,
   ): Prisma.PrismaPromise<
-    T extends runtime.Types.Utils.Record<'select', any>
-      ? T['select'] extends true
+    T extends runtime.Types.Utils.Record<"select", any>
+      ? T["select"] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], PostCountAggregateOutputType>
+        : Prisma.GetScalarType<T["select"], PostCountAggregateOutputType>
       : number
-  >
+  >;
 
   /**
    * Allows you to perform aggregations operations on a Post.
@@ -1656,7 +1610,7 @@ export interface PostDelegate<
    **/
   aggregate<T extends PostAggregateArgs>(
     args: Prisma.Subset<T, PostAggregateArgs>,
-  ): Prisma.PrismaPromise<GetPostAggregateType<T>>
+  ): Prisma.PrismaPromise<GetPostAggregateType<T>>;
 
   /**
    * Group by Post.
@@ -1679,20 +1633,20 @@ export interface PostDelegate<
   groupBy<
     T extends PostGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
-      Prisma.Extends<'skip', Prisma.Keys<T>>,
-      Prisma.Extends<'take', Prisma.Keys<T>>
+      Prisma.Extends<"skip", Prisma.Keys<T>>,
+      Prisma.Extends<"take", Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: PostGroupByArgs['orderBy'] }
-      : { orderBy?: PostGroupByArgs['orderBy'] },
+      ? { orderBy: PostGroupByArgs["orderBy"] }
+      : { orderBy?: PostGroupByArgs["orderBy"] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<
-      Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>
+      Prisma.Keys<Prisma.MaybeTupleToUnion<T["orderBy"]>>
     >,
-    ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
+    ByFields extends Prisma.MaybeTupleToUnion<T["by"]>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
-    HavingFields extends Prisma.GetHavingFields<T['having']>,
+    HavingFields extends Prisma.GetHavingFields<T["having"]>,
     HavingValid extends Prisma.Has<ByFields, HavingFields>,
-    ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False,
+    ByEmpty extends T["by"] extends never[] ? Prisma.True : Prisma.False,
     InputErrors extends ByEmpty extends Prisma.True
       ? `Error: "by" must not be empty.`
       : HavingValid extends Prisma.False
@@ -1703,29 +1657,29 @@ export interface PostDelegate<
                 ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
                 : [
                     Error,
-                    'Field ',
+                    "Field ",
                     P,
                     ` in "having" needs to be provided in "by"`,
-                  ]
+                  ];
           }[HavingFields]
-        : 'take' extends Prisma.Keys<T>
-          ? 'orderBy' extends Prisma.Keys<T>
+        : "take" extends Prisma.Keys<T>
+          ? "orderBy" extends Prisma.Keys<T>
             ? ByValid extends Prisma.True
               ? {}
               : {
                   [P in OrderFields]: P extends ByFields
                     ? never
-                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                 }[OrderFields]
             : 'Error: If you provide "take", you also need to provide "orderBy"'
-          : 'skip' extends Prisma.Keys<T>
-            ? 'orderBy' extends Prisma.Keys<T>
+          : "skip" extends Prisma.Keys<T>
+            ? "orderBy" extends Prisma.Keys<T>
               ? ByValid extends Prisma.True
                 ? {}
                 : {
                     [P in OrderFields]: P extends ByFields
                       ? never
-                      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+                      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                   }[OrderFields]
               : 'Error: If you provide "skip", you also need to provide "orderBy"'
             : ByValid extends Prisma.True
@@ -1733,18 +1687,18 @@ export interface PostDelegate<
               : {
                   [P in OrderFields]: P extends ByFields
                     ? never
-                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                 }[OrderFields],
   >(
     args: Prisma.SubsetIntersection<T, PostGroupByArgs, OrderByArg> &
       InputErrors,
   ): {} extends InputErrors
     ? GetPostGroupByPayload<T>
-    : Prisma.PrismaPromise<InputErrors>
+    : Prisma.PrismaPromise<InputErrors>;
   /**
    * Fields of the Post model
    */
-  readonly fields: PostFieldRefs
+  readonly fields: PostFieldRefs;
 }
 
 /**
@@ -1760,57 +1714,57 @@ export interface Prisma__PostClient<
     runtime.Types.Extensions.DefaultArgs,
   GlobalOmitOptions = {},
 > extends Prisma.PrismaPromise<T> {
-  readonly [Symbol.toStringTag]: 'PrismaPromise'
+  readonly [Symbol.toStringTag]: "PrismaPromise";
   creator<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(
     args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>,
   ): Prisma.Prisma__UserClient<
     | runtime.Types.Result.GetResult<
         Prisma.$UserPayload<ExtArgs>,
         T,
-        'findUniqueOrThrow',
+        "findUniqueOrThrow",
         GlobalOmitOptions
       >
     | Null,
     Null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
   subreddit<T extends Prisma.SubredditDefaultArgs<ExtArgs> = {}>(
     args?: Prisma.Subset<T, Prisma.SubredditDefaultArgs<ExtArgs>>,
   ): Prisma.Prisma__SubredditClient<
     | runtime.Types.Result.GetResult<
         Prisma.$SubredditPayload<ExtArgs>,
         T,
-        'findUniqueOrThrow',
+        "findUniqueOrThrow",
         GlobalOmitOptions
       >
     | Null,
     Null,
     ExtArgs,
     GlobalOmitOptions
-  >
+  >;
   comments<T extends Prisma.Post$commentsArgs<ExtArgs> = {}>(
     args?: Prisma.Subset<T, Prisma.Post$commentsArgs<ExtArgs>>,
   ): Prisma.PrismaPromise<
     | runtime.Types.Result.GetResult<
         Prisma.$CommentPayload<ExtArgs>,
         T,
-        'findMany',
+        "findMany",
         GlobalOmitOptions
       >
     | Null
-  >
+  >;
   votes<T extends Prisma.Post$votesArgs<ExtArgs> = {}>(
     args?: Prisma.Subset<T, Prisma.Post$votesArgs<ExtArgs>>,
   ): Prisma.PrismaPromise<
     | runtime.Types.Result.GetResult<
         Prisma.$PostVotePayload<ExtArgs>,
         T,
-        'findMany',
+        "findMany",
         GlobalOmitOptions
       >
     | Null
-  >
+  >;
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1826,7 +1780,7 @@ export interface Prisma__PostClient<
       | ((reason: any) => TResult2 | PromiseLike<TResult2>)
       | undefined
       | null,
-  ): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
+  ): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
   /**
    * Attaches a callback for only the rejection of the Promise.
    * @param onrejected The callback to execute when the Promise is rejected.
@@ -1837,7 +1791,7 @@ export interface Prisma__PostClient<
       | ((reason: any) => TResult | PromiseLike<TResult>)
       | undefined
       | null,
-  ): runtime.Types.Utils.JsPromise<T | TResult>
+  ): runtime.Types.Utils.JsPromise<T | TResult>;
   /**
    * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
    * resolved value cannot be modified from the callback.
@@ -1846,21 +1800,20 @@ export interface Prisma__PostClient<
    */
   finally(
     onfinally?: (() => void) | undefined | null,
-  ): runtime.Types.Utils.JsPromise<T>
+  ): runtime.Types.Utils.JsPromise<T>;
 }
 
 /**
  * Fields of the Post model
  */
 export interface PostFieldRefs {
-  readonly id: Prisma.FieldRef<'Post', 'String'>
-  readonly title: Prisma.FieldRef<'Post', 'String'>
-  readonly content: Prisma.FieldRef<'Post', 'String'>
-  readonly imageUrl: Prisma.FieldRef<'Post', 'String'>
-  readonly creatorId: Prisma.FieldRef<'Post', 'String'>
-  readonly subredditId: Prisma.FieldRef<'Post', 'String'>
-  readonly createdAt: Prisma.FieldRef<'Post', 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<'Post', 'DateTime'>
+  readonly id: Prisma.FieldRef<"Post", "String">;
+  readonly title: Prisma.FieldRef<"Post", "String">;
+  readonly content: Prisma.FieldRef<"Post", "String">;
+  readonly creatorId: Prisma.FieldRef<"Post", "String">;
+  readonly subredditId: Prisma.FieldRef<"Post", "String">;
+  readonly createdAt: Prisma.FieldRef<"Post", "DateTime">;
+  readonly updatedAt: Prisma.FieldRef<"Post", "DateTime">;
 }
 
 // Custom InputTypes
@@ -1874,20 +1827,20 @@ export type PostFindUniqueArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * Filter, which Post to fetch.
    */
-  where: Prisma.PostWhereUniqueInput
-}
+  where: Prisma.PostWhereUniqueInput;
+};
 
 /**
  * Post findUniqueOrThrow
@@ -1899,20 +1852,20 @@ export type PostFindUniqueOrThrowArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * Filter, which Post to fetch.
    */
-  where: Prisma.PostWhereUniqueInput
-}
+  where: Prisma.PostWhereUniqueInput;
+};
 
 /**
  * Post findFirst
@@ -1924,19 +1877,19 @@ export type PostFindFirstArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * Filter, which Post to fetch.
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -1944,32 +1897,32 @@ export type PostFindFirstArgs<
    */
   orderBy?:
     | Prisma.PostOrderByWithRelationInput
-    | Prisma.PostOrderByWithRelationInput[]
+    | Prisma.PostOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the position for searching for Posts.
    */
-  cursor?: Prisma.PostWhereUniqueInput
+  cursor?: Prisma.PostWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` Posts from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` Posts.
    */
-  skip?: number
+  skip?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    *
    * Filter by unique combinations of Posts.
    */
-  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[]
-}
+  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[];
+};
 
 /**
  * Post findFirstOrThrow
@@ -1981,19 +1934,19 @@ export type PostFindFirstOrThrowArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * Filter, which Post to fetch.
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -2001,32 +1954,32 @@ export type PostFindFirstOrThrowArgs<
    */
   orderBy?:
     | Prisma.PostOrderByWithRelationInput
-    | Prisma.PostOrderByWithRelationInput[]
+    | Prisma.PostOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the position for searching for Posts.
    */
-  cursor?: Prisma.PostWhereUniqueInput
+  cursor?: Prisma.PostWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` Posts from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` Posts.
    */
-  skip?: number
+  skip?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    *
    * Filter by unique combinations of Posts.
    */
-  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[]
-}
+  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[];
+};
 
 /**
  * Post findMany
@@ -2038,19 +1991,19 @@ export type PostFindManyArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * Filter, which Posts to fetch.
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    *
@@ -2058,27 +2011,27 @@ export type PostFindManyArgs<
    */
   orderBy?:
     | Prisma.PostOrderByWithRelationInput
-    | Prisma.PostOrderByWithRelationInput[]
+    | Prisma.PostOrderByWithRelationInput[];
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    *
    * Sets the position for listing Posts.
    */
-  cursor?: Prisma.PostWhereUniqueInput
+  cursor?: Prisma.PostWhereUniqueInput;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Take `±n` Posts from the position of the cursor.
    */
-  take?: number
+  take?: number;
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    *
    * Skip the first `n` Posts.
    */
-  skip?: number
-  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[]
-}
+  skip?: number;
+  distinct?: Prisma.PostScalarFieldEnum | Prisma.PostScalarFieldEnum[];
+};
 
 /**
  * Post create
@@ -2090,20 +2043,20 @@ export type PostCreateArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * The data needed to create a Post.
    */
-  data: Prisma.XOR<Prisma.PostCreateInput, Prisma.PostUncheckedCreateInput>
-}
+  data: Prisma.XOR<Prisma.PostCreateInput, Prisma.PostUncheckedCreateInput>;
+};
 
 /**
  * Post createMany
@@ -2115,9 +2068,9 @@ export type PostCreateManyArgs<
   /**
    * The data used to create many Posts.
    */
-  data: Prisma.PostCreateManyInput | Prisma.PostCreateManyInput[]
-  skipDuplicates?: boolean
-}
+  data: Prisma.PostCreateManyInput | Prisma.PostCreateManyInput[];
+  skipDuplicates?: boolean;
+};
 
 /**
  * Post createManyAndReturn
@@ -2129,21 +2082,21 @@ export type PostCreateManyAndReturnArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.PostSelectCreateManyAndReturn<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * The data used to create many Posts.
    */
-  data: Prisma.PostCreateManyInput | Prisma.PostCreateManyInput[]
-  skipDuplicates?: boolean
+  data: Prisma.PostCreateManyInput | Prisma.PostCreateManyInput[];
+  skipDuplicates?: boolean;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostIncludeCreateManyAndReturn<ExtArgs> | null
-}
+  include?: Prisma.PostIncludeCreateManyAndReturn<ExtArgs> | null;
+};
 
 /**
  * Post update
@@ -2155,24 +2108,24 @@ export type PostUpdateArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * The data needed to update a Post.
    */
-  data: Prisma.XOR<Prisma.PostUpdateInput, Prisma.PostUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.PostUpdateInput, Prisma.PostUncheckedUpdateInput>;
   /**
    * Choose, which Post to update.
    */
-  where: Prisma.PostWhereUniqueInput
-}
+  where: Prisma.PostWhereUniqueInput;
+};
 
 /**
  * Post updateMany
@@ -2187,16 +2140,16 @@ export type PostUpdateManyArgs<
   data: Prisma.XOR<
     Prisma.PostUpdateManyMutationInput,
     Prisma.PostUncheckedUpdateManyInput
-  >
+  >;
   /**
    * Filter which Posts to update
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * Limit how many Posts to update.
    */
-  limit?: number
-}
+  limit?: number;
+};
 
 /**
  * Post updateManyAndReturn
@@ -2208,31 +2161,31 @@ export type PostUpdateManyAndReturnArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.PostSelectUpdateManyAndReturn<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * The data used to update Posts.
    */
   data: Prisma.XOR<
     Prisma.PostUpdateManyMutationInput,
     Prisma.PostUncheckedUpdateManyInput
-  >
+  >;
   /**
    * Filter which Posts to update
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * Limit how many Posts to update.
    */
-  limit?: number
+  limit?: number;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostIncludeUpdateManyAndReturn<ExtArgs> | null
-}
+  include?: Prisma.PostIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
 
 /**
  * Post upsert
@@ -2244,28 +2197,28 @@ export type PostUpsertArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * The filter to search for the Post to update in case it exists.
    */
-  where: Prisma.PostWhereUniqueInput
+  where: Prisma.PostWhereUniqueInput;
   /**
    * In case the Post found by the `where` argument doesn't exist, create a new Post with this data.
    */
-  create: Prisma.XOR<Prisma.PostCreateInput, Prisma.PostUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.PostCreateInput, Prisma.PostUncheckedCreateInput>;
   /**
    * In case the Post was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.PostUpdateInput, Prisma.PostUncheckedUpdateInput>
-}
+  update: Prisma.XOR<Prisma.PostUpdateInput, Prisma.PostUncheckedUpdateInput>;
+};
 
 /**
  * Post delete
@@ -2277,20 +2230,20 @@ export type PostDeleteArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
+  include?: Prisma.PostInclude<ExtArgs> | null;
   /**
    * Filter which Post to delete.
    */
-  where: Prisma.PostWhereUniqueInput
-}
+  where: Prisma.PostWhereUniqueInput;
+};
 
 /**
  * Post deleteMany
@@ -2302,12 +2255,12 @@ export type PostDeleteManyArgs<
   /**
    * Filter which Posts to delete
    */
-  where?: Prisma.PostWhereInput
+  where?: Prisma.PostWhereInput;
   /**
    * Limit how many Posts to delete.
    */
-  limit?: number
-}
+  limit?: number;
+};
 
 /**
  * Post.comments
@@ -2319,24 +2272,24 @@ export type Post$commentsArgs<
   /**
    * Select specific fields to fetch from the Comment
    */
-  select?: Prisma.CommentSelect<ExtArgs> | null
+  select?: Prisma.CommentSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Comment
    */
-  omit?: Prisma.CommentOmit<ExtArgs> | null
+  omit?: Prisma.CommentOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.CommentInclude<ExtArgs> | null
-  where?: Prisma.CommentWhereInput
+  include?: Prisma.CommentInclude<ExtArgs> | null;
+  where?: Prisma.CommentWhereInput;
   orderBy?:
     | Prisma.CommentOrderByWithRelationInput
-    | Prisma.CommentOrderByWithRelationInput[]
-  cursor?: Prisma.CommentWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.CommentScalarFieldEnum | Prisma.CommentScalarFieldEnum[]
-}
+    | Prisma.CommentOrderByWithRelationInput[];
+  cursor?: Prisma.CommentWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.CommentScalarFieldEnum | Prisma.CommentScalarFieldEnum[];
+};
 
 /**
  * Post.votes
@@ -2348,24 +2301,24 @@ export type Post$votesArgs<
   /**
    * Select specific fields to fetch from the PostVote
    */
-  select?: Prisma.PostVoteSelect<ExtArgs> | null
+  select?: Prisma.PostVoteSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the PostVote
    */
-  omit?: Prisma.PostVoteOmit<ExtArgs> | null
+  omit?: Prisma.PostVoteOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostVoteInclude<ExtArgs> | null
-  where?: Prisma.PostVoteWhereInput
+  include?: Prisma.PostVoteInclude<ExtArgs> | null;
+  where?: Prisma.PostVoteWhereInput;
   orderBy?:
     | Prisma.PostVoteOrderByWithRelationInput
-    | Prisma.PostVoteOrderByWithRelationInput[]
-  cursor?: Prisma.PostVoteWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[]
-}
+    | Prisma.PostVoteOrderByWithRelationInput[];
+  cursor?: Prisma.PostVoteWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.PostVoteScalarFieldEnum | Prisma.PostVoteScalarFieldEnum[];
+};
 
 /**
  * Post without action
@@ -2377,13 +2330,13 @@ export type PostDefaultArgs<
   /**
    * Select specific fields to fetch from the Post
    */
-  select?: Prisma.PostSelect<ExtArgs> | null
+  select?: Prisma.PostSelect<ExtArgs> | null;
   /**
    * Omit specific fields from the Post
    */
-  omit?: Prisma.PostOmit<ExtArgs> | null
+  omit?: Prisma.PostOmit<ExtArgs> | null;
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PostInclude<ExtArgs> | null
-}
+  include?: Prisma.PostInclude<ExtArgs> | null;
+};
