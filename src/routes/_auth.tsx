@@ -1,9 +1,13 @@
-import { Outlet, createFileRoute } from '@tanstack/react-router'
+import { Outlet, createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/_auth')({
+export const Route = createFileRoute("/_auth")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <Outlet />
+  return (
+    <main className="h-svh grid place-items-center">
+      <Outlet />
+    </main>
+  );
 }
