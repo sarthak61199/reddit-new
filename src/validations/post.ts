@@ -3,7 +3,7 @@ import { VoteType } from "@/generated/prisma/enums";
 
 export const createPostSchema = z.object({
   title: z.string().nonempty(),
-  content: z.string().nonempty(),
+  content: z.string(),
   subredditId: z.string().nonempty(),
 });
 

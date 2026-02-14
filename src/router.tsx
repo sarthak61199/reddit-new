@@ -16,6 +16,13 @@ export const getRouter = () => {
     },
 
     defaultPreload: "intent",
+    Wrap: ({ children }) => {
+      return (
+        <TanstackQuery.Provider queryClient={rqContext.queryClient}>
+          {children}
+        </TanstackQuery.Provider>
+      );
+    },
   });
 
   setupRouterSsrQueryIntegration({

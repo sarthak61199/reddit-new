@@ -8,7 +8,7 @@ export const Route = createFileRoute("/_auth")({
 function RouteComponent() {
   return (
     <main className="h-svh flex flex-col">
-      <header className="py-6 border-b">
+      <header className="h-20 border-b">
         <div className="container mx-auto">
           <Logo />
         </div>

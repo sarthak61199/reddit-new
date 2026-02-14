@@ -73,7 +73,7 @@ function RouteComponent() {
               touched={field.state.meta.isTouched}
             >
               <div className="space-y-2">
-                <Field.Label nativeLabel={false} render={<Label>Name</Label>} />
+                <Field.Label render={<Label>Name</Label>} />
                 <Input
                   type="text"
                   placeholder="Enter your name"
@@ -100,10 +100,7 @@ function RouteComponent() {
               touched={field.state.meta.isTouched}
             >
               <div className="space-y-2">
-                <Field.Label
-                  nativeLabel={false}
-                  render={<Label>Email</Label>}
-                />
+                <Field.Label render={<Label>Email</Label>} />
                 <Input
                   type="email"
                   placeholder="name@example.com"
@@ -131,10 +128,7 @@ function RouteComponent() {
               touched={field.state.meta.isTouched}
             >
               <div className="space-y-2">
-                <Field.Label
-                  nativeLabel={false}
-                  render={<Label>Password</Label>}
-                />
+                <Field.Label render={<Label>Password</Label>} />
                 <Input
                   type="password"
                   placeholder="Enter your password"
