@@ -1,16 +1,48 @@
 import { Field } from "@base-ui/react/field";
 import { useForm } from "@tanstack/react-form";
+import { useServerFn } from "@tanstack/react-start";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { createSubredditSchema } from "@/validations/subreddit";
+import { createSubreddit as createSubredditFn } from "@/functions/subreddit";
 
 function CreateSubreddit() {
+  const createSubreddit = useServerFn(createSubredditFn);
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: createSubreddit,
+    onSuccess: ({ id }) => {
+      navigate({ to: "/subreddit/$subredditId", params: { subredditId: id } });
+      queryClient.invalidateQueries({ queryKey: ["subreddits"] });
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
   const form = useForm({
     defaultValues: { name: "", description: "" },
     onSubmit: ({ value: formValues }) => {
-      console.log("Form values:", formValues);
+      mutate(
+        {
+          data: {
+            name: formValues.name,
+            description: formValues.description,
+          },
+        },
+        {
+          onSuccess: () => {
+            form.reset();
+          },
+        },
+      );
     },
     validators: {
       onChange: createSubredditSchema,

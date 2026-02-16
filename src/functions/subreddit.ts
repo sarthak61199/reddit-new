@@ -26,6 +26,9 @@ export const getSubreddits = createServerFn({ method: "GET" })
         id: true,
         name: true,
       },
+      orderBy: {
+        name: "asc",
+      },
     });
 
     return subreddits;
@@ -104,6 +107,20 @@ export const createSubreddit = createServerFn({ method: "POST" })
       },
       select: {
         id: true,
+      },
+    });
+
+    await prisma.subredditMember.create({
+      data: {
+        subredditId: newSubreddit.id,
+        userId: user.id,
+      },
+    });
+
+    await prisma.subredditModerator.create({
+      data: {
+        subredditId: newSubreddit.id,
+        userId: user.id,
       },
     });
 
