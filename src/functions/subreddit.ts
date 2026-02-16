@@ -99,29 +99,33 @@ export const createSubreddit = createServerFn({ method: "POST" })
       throw new Error("Subreddit already exists");
     }
 
-    const newSubreddit = await prisma.subreddit.create({
-      data: {
-        name,
-        description,
-        creatorId: user.id,
-      },
-      select: {
-        id: true,
-      },
-    });
+    const newSubreddit = await prisma.$transaction(async (tx) => {
+      const createdSubreddit = await tx.subreddit.create({
+        data: {
+          name,
+          description,
+          creatorId: user.id,
+        },
+        select: {
+          id: true,
+        },
+      });
 
-    await prisma.subredditMember.create({
-      data: {
-        subredditId: newSubreddit.id,
-        userId: user.id,
-      },
-    });
+      await tx.subredditMember.create({
+        data: {
+          subredditId: createdSubreddit.id,
+          userId: user.id,
+        },
+      });
 
-    await prisma.subredditModerator.create({
-      data: {
-        subredditId: newSubreddit.id,
-        userId: user.id,
-      },
+      await tx.subredditModerator.create({
+        data: {
+          subredditId: createdSubreddit.id,
+          userId: user.id,
+        },
+      });
+
+      return createdSubreddit;
     });
 
     return newSubreddit;
