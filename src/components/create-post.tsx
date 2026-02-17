@@ -1,40 +1,42 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { Field } from "@base-ui/react/field";
 import { useForm } from "@tanstack/react-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Combobox,
+  ComboboxContent,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox";
 import { Textarea } from "@/components/ui/textarea";
 import { createPostSchema } from "@/validations/post";
-
-const subreddits = [
-  { value: "1", label: "test" },
-  { value: "2", label: "test2" },
-  { value: "3", label: "test3" },
-  { value: "4", label: "test4" },
-  { value: "5", label: "test5" },
-  { value: "6", label: "test6" },
-  { value: "7", label: "test7" },
-  { value: "8", label: "test8" },
-  { value: "9", label: "test9" },
-  { value: "10", label: "test10" },
-];
+import { getSubreddits as getSubredditsFn } from "@/functions/subreddit";
 
 function CreatePost() {
+  const getSubreddits = useServerFn(getSubredditsFn);
   const form = useForm({
-    defaultValues: { subredditId: "", title: "", content: "" },
+    defaultValues: {
+      subredditId: "",
+      title: "",
+      content: "",
+    },
     onSubmit: ({ value: formValues }) => {
       console.log("Form values:", formValues);
     },
     validators: {
       onChange: createPostSchema,
     },
+  });
+
+  const { data: subreddits } = useSuspenseQuery({
+    queryKey: ["subreddits"],
+    queryFn: () => getSubreddits(),
+    staleTime: 1000 * 60 * 5, // 5 minutes
+    gcTime: 1000 * 60 * 10, // 10 minutes
   });
 
   return (
@@ -54,27 +56,31 @@ function CreatePost() {
             touched={field.state.meta.isTouched}
           >
             <div className="space-y-2">
-              <Field.Label
-                render={<Label htmlFor={field.name}>Subreddit</Label>}
-              />
-              <Select
+              <Field.Label render={<div />} nativeLabel={false}>
+                Subreddit
+              </Field.Label>
+              <Combobox
                 id={field.name}
                 name={field.name}
-                value={field.state.value}
-                onValueChange={(value) => field.handleChange(value || "")}
+                value={subreddits.find(
+                  (subreddit) => subreddit.id === field.state.value,
+                )}
+                onValueChange={(value) => field.handleChange(value?.id ?? "")}
                 items={subreddits}
+                itemToStringLabel={(item) => item.name}
+                itemToStringValue={(item) => item.id}
               >
-                <SelectTrigger onBlur={field.handleBlur} className="w-full">
-                  <SelectValue placeholder="Select a subreddit" />
-                </SelectTrigger>
-                <SelectContent>
-                  {subreddits.map((subreddit) => (
-                    <SelectItem key={subreddit.value} value={subreddit.value}>
-                      {subreddit.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+                <ComboboxInput placeholder="Select a subreddit" />
+                <ComboboxContent>
+                  <ComboboxList>
+                    {(subreddit) => (
+                      <ComboboxItem key={subreddit.id} value={subreddit}>
+                        {subreddit.name}
+                      </ComboboxItem>
+                    )}
+                  </ComboboxList>
+                </ComboboxContent>
+              </Combobox>
               <Field.Error
                 className="text-destructive text-sm"
                 match={!field.state.meta.isValid}
