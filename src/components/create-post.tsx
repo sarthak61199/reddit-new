@@ -1,7 +1,9 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useMutation, useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { Field } from "@base-ui/react/field";
 import { useForm } from "@tanstack/react-form";
+import { toast } from "sonner";
+import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,9 +17,26 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { createPostSchema } from "@/validations/post";
 import { getSubreddits as getSubredditsFn } from "@/functions/subreddit";
+import { createPost as createPostFn } from "@/functions/post";
 
 function CreatePost() {
   const getSubreddits = useServerFn(getSubredditsFn);
+  const createPost = useServerFn(createPostFn);
+  const navigate = useNavigate();
+
+  const { mutate } = useMutation({
+    mutationFn: createPost,
+    onSuccess: ({ id, subredditId }) => {
+      navigate({
+        to: "/subreddit/$subredditId/post/$postId",
+        params: { subredditId: subredditId, postId: id },
+      });
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
   const form = useForm({
     defaultValues: {
       subredditId: "",
@@ -25,7 +44,13 @@ function CreatePost() {
       content: "",
     },
     onSubmit: ({ value: formValues }) => {
-      console.log("Form values:", formValues);
+      mutate({
+        data: {
+          subredditId: formValues.subredditId,
+          title: formValues.title,
+          content: formValues.content,
+        },
+      });
     },
     validators: {
       onChange: createPostSchema,

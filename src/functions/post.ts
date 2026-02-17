@@ -152,6 +152,12 @@ export const createPost = createServerFn({ method: "POST" })
           content,
           subredditId,
           creatorId: user.id,
+          votes: {
+            create: {
+              type: "UP",
+              userId: user.id,
+            },
+          },
         },
       });
 
