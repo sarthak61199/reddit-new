@@ -274,3 +274,5 @@ export const votePost = createServerFn({ method: "POST" })
       });
     }
   });
+
+export type Post = Awaited<ReturnType<typeof getPost>>;

@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { MessageSquare, User } from "lucide-react";
-import { useMutation, useQueryClient, useSuspenseQuery  } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
+import type { Post } from "@/functions/post";
 import {
   Card,
   CardContent,
@@ -10,18 +11,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { postQueryOptions } from "@/routes/_main/subreddit/$subredditId/post/$postId/index";
 import { Button } from "@/components/ui/button";
 import Voting from "@/components/voting";
 import { votePost as votePostFn } from "@/functions/post";
 
 interface PostCardProps {
-  postId: string;
+  post: Post;
 }
 
-export function PostCard({ postId }: PostCardProps) {
+export function PostCard({ post }: PostCardProps) {
   const queryClient = useQueryClient();
-  const { data: post } = useSuspenseQuery(postQueryOptions(postId));
   const votePost = useServerFn(votePostFn);
 
   const formattedDate = new Date(post.createdAt).toLocaleDateString("en-US", {
@@ -34,7 +33,7 @@ export function PostCard({ postId }: PostCardProps) {
     mutationFn: votePost,
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["post", postId],
+        queryKey: ["posts"],
       });
     },
     onError: (error) => {
@@ -74,7 +73,7 @@ export function PostCard({ postId }: PostCardProps) {
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <Voting
                 onVote={(type) => {
-                  mutate({ data: { postId, type } });
+                  mutate({ data: { postId: post.id, type } });
                 }}
                 voteCount={post.voteCount}
                 userVote={post.userVote}
