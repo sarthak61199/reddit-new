@@ -3,6 +3,7 @@ import {
   createPostSchema,
   deletePostSchema,
   getPostSchema,
+  getPostsSchema,
   updatePostSchema,
   votePostSchema,
 } from "@/validations/post";
@@ -11,17 +12,20 @@ import { prisma } from "@/lib/db";
 
 export const getPosts = createServerFn({ method: "GET" })
   .middleware([authMiddleware])
-  .handler(async ({ context: { user } }) => {
+  .inputValidator(getPostsSchema)
+  .handler(async ({ context: { user }, data: { subredditId } }) => {
     const posts = await prisma.post.findMany({
-      where: {
-        subreddit: {
-          members: {
-            some: {
-              userId: user.id,
+      where: subredditId
+        ? { subredditId }
+        : {
+            subreddit: {
+              members: {
+                some: {
+                  userId: user.id,
+                },
+              },
             },
           },
-        },
-      },
       select: {
         id: true,
         title: true,

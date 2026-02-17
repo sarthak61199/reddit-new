@@ -23,6 +23,10 @@ export const getPostSchema = z.object({
   id: z.ulid().nonempty(),
 });
 
+export const getPostsSchema = z.object({
+  subredditId: z.ulid().nonempty().optional(),
+});
+
 export const votePostSchema = z.object({
   postId: z.ulid().nonempty(),
   type: z.enum(VoteType),

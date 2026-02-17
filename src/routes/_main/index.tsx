@@ -6,7 +6,7 @@ import { getPosts } from "@/functions/post";
 export const getPostsOptions = () => {
   return queryOptions({
     queryKey: ["posts"],
-    queryFn: () => getPosts(),
+    queryFn: () => getPosts({ data: {} }),
   });
 };
 
